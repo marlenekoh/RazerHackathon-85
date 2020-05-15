@@ -1,10 +1,12 @@
 import React from "react";
 import { SvgUri } from "react-native-svg";
-import { View, Text } from "react-native";
+import { Text } from "react-native";
+
+import { HomeScreenContainer } from "./HomeScreenContainer";
 
 export const HomeScreen: React.FunctionComponent = () => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <HomeScreenContainer>
       <SvgUri
         width="250"
         height="250"
@@ -12,6 +14,6 @@ export const HomeScreen: React.FunctionComponent = () => {
         color="black"
       />
       <Text>Home Screen</Text>
-    </View>
+    </HomeScreenContainer>
   );
 };
