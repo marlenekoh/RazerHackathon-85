@@ -11,7 +11,6 @@ export const HomeScreen: React.FunctionComponent = () => {
         width="250"
         height="250"
         uri="http://thenewcode.com/assets/images/thumbnails/homer-simpson.svg"
-        color="black"
       />
       <Text>Home Screen</Text>
     </HomeScreenContainer>

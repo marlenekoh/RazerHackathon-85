@@ -10,6 +10,8 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@screens/*": ["src/screens/*"]
+      "@screens/*": ["src/screens/*"],
+      "@icons/*": ["src/icons/*"]
+    }
   }
 }
