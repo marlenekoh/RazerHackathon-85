@@ -9,6 +9,10 @@ export enum Route {
   SmeProfile = "SmeProfile",
   SmeGrants = "SmeGrants",
   SmeLoans = "SmeLoans",
+  SmeGrantLoans = "SmeGrantLoans",
+  SmeRazerPeer = "SmeRazerPeer",
+  SmeOutstandingLoans = "SmeOutstandingLoans",
+  SmeLoanSelect = "SmeLoanSelect",
 }
 
 export type RootStackParamList = {
@@ -38,5 +42,9 @@ export type RootStackParamList = {
   };
   [Route.SmeProfile]: undefined;
   [Route.SmeGrants]: undefined;
-  [Route.SmeLoans]: { applied?: boolean; approved?: boolean };
+  [Route.SmeLoans]: undefined;
+  [Route.SmeGrantLoans]: { applied?: boolean; approved?: boolean };
+  [Route.SmeRazerPeer]: undefined;
+  [Route.SmeOutstandingLoans]: undefined;
+  [Route.SmeLoanSelect]: undefined;
 };

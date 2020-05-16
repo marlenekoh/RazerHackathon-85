@@ -116,6 +116,10 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
           component: () => (
             <FundingTab
               navigateToGrants={() => navigation.navigate(Route.SmeGrants)}
+              navigateToLoans={() => navigation.navigate(Route.SmeLoans)}
+              navigateToRazerPeer={() =>
+                navigation.navigate(Route.SmeRazerPeer)
+              }
             />
           ),
         }}

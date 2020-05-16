@@ -10,10 +10,14 @@ import { Divider } from "@components/Divider";
 
 interface FundingTabProps {
   navigateToGrants: () => void;
+  navigateToLoans: () => void;
+  navigateToRazerPeer: () => void;
 }
 
 export const FundingTab: React.FunctionComponent<FundingTabProps> = ({
   navigateToGrants,
+  navigateToLoans,
+  navigateToRazerPeer,
 }) => {
   return (
     <ScrollView>
@@ -45,7 +49,7 @@ export const FundingTab: React.FunctionComponent<FundingTabProps> = ({
         <Expander vertical size={20} />
         <Text h1>Loans</Text>
         <Expander vertical size={10} />
-        <Card>
+        <Card onPress={navigateToLoans}>
           <Card.Content>
             <Row>
               <Expander>
@@ -69,7 +73,7 @@ export const FundingTab: React.FunctionComponent<FundingTabProps> = ({
         <Expander vertical size={10} />
         <Text h1>RazerPeers</Text>
         <Expander vertical size={10} />
-        <Card>
+        <Card onPress={navigateToRazerPeer}>
           <Card.Content>
             <Row>
               <Expander>
