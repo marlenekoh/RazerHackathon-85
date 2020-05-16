@@ -5,6 +5,8 @@ export enum Route {
   InvestorBrowseInvestment = "InvestorBrowseInvestment",
   InvestorSmeDetails = "InvestorSmeDetails",
   SmeHome = "SmeHome",
+  SmeDigitalisationDetails = "SmeDigitalisationDetails",
+  SmeProfile = "SmeProfile",
 }
 
 export type RootStackParamList = {
@@ -23,4 +25,14 @@ export type RootStackParamList = {
     onPress?: () => void;
   };
   [Route.SmeHome]: undefined;
+  [Route.SmeDigitalisationDetails]: {
+    title: string;
+    subtitle: string;
+    description: string;
+    industryName: string;
+    suggestedSoftware: string;
+    discountSoftware: string;
+    completed: boolean;
+  };
+  [Route.SmeProfile]: undefined;
 };

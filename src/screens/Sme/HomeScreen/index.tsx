@@ -21,6 +21,10 @@ import { View, Dimensions } from "react-native";
 import { SceneMap, TabView, TabBar } from "react-native-tab-view";
 import { FundingTab } from "./FundingTab";
 import { DigitalisationTab } from "./DigitalisationTab";
+import {
+  TouchableHighlight,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 
 interface HomeScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.SmeHome>;
@@ -38,7 +42,13 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
   ]);
   const renderScene = SceneMap({
     first: () => <FundingTab />,
-    second: () => <DigitalisationTab />,
+    second: () => (
+      <DigitalisationTab
+        navigateToDigitalisationDetails={(props) =>
+          navigation.navigate(Route.SmeDigitalisationDetails, props)
+        }
+      />
+    ),
   });
   const initialLayout = { width: Dimensions.get("window").width };
 
@@ -46,13 +56,15 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
     <HomeScreenContainer>
       <IconButton icon="menu" onPress={() => {}} />
       <Center>
-        <Avatar.Image
-          source={{
-            uri:
-              "https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png",
-          }}
-          size={70}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate(Route.SmeProfile)}>
+          <Avatar.Image
+            source={{
+              uri:
+                "https://www.kindpng.com/picc/m/130-1300217_user-icon-member-icon-png-transparent-png.png",
+            }}
+            size={70}
+          />
+        </TouchableOpacity>
         <Text p1>Hi (Really Long Name) from</Text>
         <Text h2>Really Long Company Name</Text>
       </Center>

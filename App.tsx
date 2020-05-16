@@ -11,7 +11,11 @@ import {
   BrowseInvestmentScreen as InvestorBrowseInvestmentScreen,
   SmeDetailsScreen as InvestorSmeDetailsScreen,
 } from "@screens/Investor";
-import { HomeScreen as SmeHomeScreen } from "@screens/Sme";
+import {
+  HomeScreen as SmeHomeScreen,
+  DigitalisationDetailsScreen as SmeDigitalisationDetailsScreen,
+  ProfileScreen as SmeProfileScreen,
+} from "@screens/Sme";
 import { HomeScreen } from "@screens/HomeScreen";
 import { Route } from "@common/Route";
 
@@ -59,6 +63,16 @@ const App: React.FunctionComponent = () => {
           <Stack.Screen
             name={Route.SmeHome}
             component={SmeHomeScreen}
+            options={screenOptions}
+          />
+          <Stack.Screen
+            name={Route.SmeDigitalisationDetails}
+            component={SmeDigitalisationDetailsScreen}
+            options={screenOptions}
+          />
+          <Stack.Screen
+            name={Route.SmeProfile}
+            component={SmeProfileScreen}
             options={screenOptions}
           />
         </Stack.Navigator>
