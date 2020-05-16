@@ -14,6 +14,7 @@ import { HomeScreenContainer } from "./HomeScreenContainer";
 import { ContentContainer } from "./ContentContainer";
 import { SubContentContainer } from "./SubContentContainer";
 import { Section } from "./Section";
+import { DataGroup } from "../DataGroup/DataGroup";
 
 interface HomeScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.InvestorHome>;
@@ -41,7 +42,7 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
           />
           <Text h2>Hi (Really Long Name)</Text>
           <Text p1>here's how you're doing:</Text>
-          <Expander vertical size={50}>
+          <Expander vertical size={30}>
             <ContentContainer>
               <Text h1>8.44%</Text>
               <Text p1>Annualized Return</Text>
@@ -67,10 +68,19 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
             </Expander>
           </Row>
         </ContentContainer>
-        <Expander vertical size={50}>
+        <Expander vertical size={40}>
           <Section
             title="Performance & Account"
-            content={<Text>(Insert Content Here)</Text>}
+            content={
+              <Row>
+                <Expander>
+                  <DataGroup label="Net Income" value="S$0.00" />
+                </Expander>
+                <Expander>
+                  <DataGroup label="Account Balance" value="S$0.00" />
+                </Expander>
+              </Row>
+            }
             onCardPress={() => {
               navigation.navigate(Route.InvestorPerformanceAccount);
             }}
@@ -78,10 +88,19 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
               navigation.navigate(Route.InvestorPerformanceAccount);
             }}
           />
-          <Expander vertical size={40} />
+          <Expander vertical size={30} />
           <Section
             title="Browse Investment"
-            content={<Text>(Insert Content Here)</Text>}
+            content={
+              <Row>
+                <Expander>
+                  <DataGroup label="Funds Invested" value="S$30,000" />
+                </Expander>
+                <Expander>
+                  <DataGroup label="Deals Ongoing" value="2" />
+                </Expander>
+              </Row>
+            }
             onCardPress={() => {
               navigation.navigate(Route.InvestorBrowseInvestment);
             }}
@@ -89,10 +108,19 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
               navigation.navigate(Route.InvestorBrowseInvestment);
             }}
           />
-          <Expander vertical size={40} />
+          <Expander vertical size={30} />
           <Section
             title="Auto-Investment"
-            content={<Text>(Insert Content Here)</Text>}
+            content={
+              <Row>
+                <Expander>
+                  <DataGroup label="Returns" value="S$0.00" />
+                </Expander>
+                <Expander>
+                  <DataGroup label="Current Value" value="S$0.00" />
+                </Expander>
+              </Row>
+            }
           />
         </Expander>
       </ScrollView>

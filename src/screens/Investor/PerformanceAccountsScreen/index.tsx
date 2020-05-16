@@ -62,7 +62,7 @@ export const PerformanceAccountScreen: React.FunctionComponent<PerformanceAccoun
                 {route.title}
               </Text>
             )}
-            style={{ backgroundColor: "transparent", elevation: 0 }}
+            style={{ backgroundColor: "#f7f7f7", elevation: 0 }}
           />
         )}
       />

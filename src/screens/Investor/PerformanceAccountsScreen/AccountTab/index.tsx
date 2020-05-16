@@ -1,12 +1,13 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import { Card, Button } from "react-native-paper";
+import { Card, Button, Chip } from "react-native-paper";
 
 import { Divider } from "@components/Divider";
 import { Text } from "@components/Text";
 import { Expander } from "@components/Expander";
 import { Center } from "@components/Center";
 import { DataRow } from "../../DataRow/DataRow";
+import { Row } from "@components/Row";
 
 export const AccountTab: React.FunctionComponent = () => {
   return (
@@ -30,11 +31,36 @@ export const AccountTab: React.FunctionComponent = () => {
         </Card>
         <Expander vertical size={40} />
 
-        <Text h1>Default & Recovery</Text>
+        <Text h1>Transaction History</Text>
         <Expander vertical size={10} />
         <Card>
           <Card.Content>
-            <Expander vertical size={6}>
+            <DataRow label="16 May 2020, 16:28" value="S$420" />
+            <Row>
+              <Chip
+                mode="outlined"
+                style={{ borderColor: "blue", borderWidth: 2 }}
+                textStyle={{ color: "blue" }}
+              >
+                Deposit
+              </Chip>
+              <Expander />
+            </Row>
+            <Expander vertical size={12}>
+              <Divider />
+            </Expander>
+            <DataRow label="15 May 2020, 07:52" value="-S$100" />
+            <Row>
+              <Chip
+                mode="outlined"
+                style={{ borderColor: "blue", borderWidth: 2 }}
+                textStyle={{ color: "blue" }}
+              >
+                Withdrawal
+              </Chip>
+              <Expander />
+            </Row>
+            <Expander vertical size={12}>
               <Divider />
             </Expander>
           </Card.Content>
@@ -44,6 +70,7 @@ export const AccountTab: React.FunctionComponent = () => {
           </Card.Actions>
         </Card>
       </Expander>
+      <Expander vertical size={40} />
     </ScrollView>
   );
 };
