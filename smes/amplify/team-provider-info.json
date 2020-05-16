@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-razermobile-dev-01553-authRole",
+            "UnauthRoleArn": "arn:aws:iam::213193488155:role/amplify-razermobile-dev-01553-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::213193488155:role/amplify-razermobile-dev-01553-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "amplify-razermobile-dev-01553-deployment",
+            "UnauthRoleName": "amplify-razermobile-dev-01553-unauthRole",
+            "StackName": "amplify-razermobile-dev-01553",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:213193488155:stack/amplify-razermobile-dev-01553/5bc5cf10-96c7-11ea-9675-062b7ab1ef08",
+            "AmplifyAppId": "d27cbz4hqs7wrl"
+        }
+    }
+}
