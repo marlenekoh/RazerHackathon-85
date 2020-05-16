@@ -7,6 +7,7 @@ export enum Route {
   SmeHome = "SmeHome",
   SmeDigitalisationDetails = "SmeDigitalisationDetails",
   SmeProfile = "SmeProfile",
+  SmeGrants = "SmeGrants",
 }
 
 export type RootStackParamList = {
@@ -35,4 +36,5 @@ export type RootStackParamList = {
     completed: boolean;
   };
   [Route.SmeProfile]: undefined;
+  [Route.SmeGrants]: undefined;
 };

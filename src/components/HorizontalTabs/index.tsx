@@ -1,5 +1,6 @@
-import React from "react";
-import { useTabs } from "./useTabs";
+import React, { useState } from "react";
+import { SceneMap } from "react-native-tab-view";
+import { Dimensions } from "react-native";
 import { TabView, TabBar } from "react-native-tab-view";
 import { Text } from "@components/Text";
 /**
@@ -21,10 +22,16 @@ export const HorizontalTabs: React.FunctionComponent<HorizontalTabsProps> = ({
   tab1,
   tab2,
 }) => {
-  const { index, routes, renderScene, setIndex, initialLayout } = useTabs(
-    tab1,
-    tab2
-  );
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
+    { key: "first", title: tab1.title },
+    { key: "second", title: tab2.title },
+  ]);
+  const renderScene = SceneMap({
+    first: tab1.component,
+    second: tab2.component,
+  });
+  const initialLayout = { width: Dimensions.get("window").width };
 
   return (
     <TabView

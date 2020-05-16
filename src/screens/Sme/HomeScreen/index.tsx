@@ -17,14 +17,11 @@ import { HomeScreenContainer } from "./HomeScreenContainer";
 import { Center } from "@components/Center";
 import { Row } from "@components/Row";
 import { Divider } from "@components/Divider";
-import { View, Dimensions } from "react-native";
-import { SceneMap, TabView, TabBar } from "react-native-tab-view";
+import { View } from "react-native";
 import { FundingTab } from "./FundingTab";
 import { DigitalisationTab } from "./DigitalisationTab";
-import {
-  TouchableHighlight,
-  TouchableOpacity,
-} from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { HorizontalTabs } from "@components/HorizontalTabs";
 
 interface HomeScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.SmeHome>;
@@ -35,23 +32,6 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
   navigation,
   route,
 }) => {
-  const [index, setIndex] = useState(0);
-  const [routes] = useState([
-    { key: "first", title: "funding" },
-    { key: "second", title: "digitalisation" },
-  ]);
-  const renderScene = SceneMap({
-    first: () => <FundingTab />,
-    second: () => (
-      <DigitalisationTab
-        navigateToDigitalisationDetails={(props) =>
-          navigation.navigate(Route.SmeDigitalisationDetails, props)
-        }
-      />
-    ),
-  });
-  const initialLayout = { width: Dimensions.get("window").width };
-
   return (
     <HomeScreenContainer>
       <IconButton icon="menu" onPress={() => {}} />
@@ -130,26 +110,25 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
         </Card.Content>
       </Card>
       <Expander vertical size={12} />
-      <TabView
-        navigationState={{ index, routes }}
-        renderScene={renderScene}
-        onIndexChange={setIndex}
-        initialLayout={initialLayout}
-        renderTabBar={(props) => (
-          <TabBar
-            {...props}
-            indicatorStyle={{
-              backgroundColor: "black",
-              borderWidth: 2,
-            }}
-            renderLabel={({ route, focused }) => (
-              <Text h5 color={focused ? "black" : "gray"}>
-                {route.title}
-              </Text>
-            )}
-            style={{ backgroundColor: "#f7f7f7", elevation: 0 }}
-          />
-        )}
+      <HorizontalTabs
+        tab1={{
+          title: "funding",
+          component: () => (
+            <FundingTab
+              navigateToGrants={() => navigation.navigate(Route.SmeGrants)}
+            />
+          ),
+        }}
+        tab2={{
+          title: "digitalisation",
+          component: () => (
+            <DigitalisationTab
+              navigateToDigitalisationDetails={(props) =>
+                navigation.navigate(Route.SmeDigitalisationDetails, props)
+              }
+            />
+          ),
+        }}
       />
     </HomeScreenContainer>
   );

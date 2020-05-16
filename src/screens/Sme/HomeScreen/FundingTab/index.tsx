@@ -8,14 +8,20 @@ import { DataGroup } from "@components/DataGroup";
 import { Row } from "@components/Row";
 import { Divider } from "@components/Divider";
 
-export const FundingTab: React.FunctionComponent = () => {
+interface FundingTabProps {
+  navigateToGrants: () => void;
+}
+
+export const FundingTab: React.FunctionComponent<FundingTabProps> = ({
+  navigateToGrants,
+}) => {
   return (
     <ScrollView>
       <Expander vertical size={20} />
       <Expander size={18}>
         <Text h1>Grants</Text>
         <Expander vertical size={10} />
-        <Card>
+        <Card onPress={navigateToGrants}>
           <Card.Content>
             <Row>
               <Expander>
