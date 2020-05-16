@@ -16,6 +16,12 @@ To Start:
 3. Run `yarn start` to start Expo.
 4. That's all! Choose to run on Emulator or on your Phone.
 
+Try the app on an online simulator:
+
+Android: https://github.com/marlenekoh/RazerHackathon-85
+
+iOS: https://appetize.io/app/j83wbfe5n83p4bqj8my434fqz4
+
 ## Tools
 
 Built with Expo, Typescript, React Native, React-Native-Paper.
