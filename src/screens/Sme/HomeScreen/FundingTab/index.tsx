@@ -61,7 +61,7 @@ export const FundingTab: React.FunctionComponent = () => {
           </Card.Actions>
         </Card>
         <Expander vertical size={10} />
-        <Text h1>P2P Lending</Text>
+        <Text h1>RazerPeers</Text>
         <Expander vertical size={10} />
         <Card>
           <Card.Content>
