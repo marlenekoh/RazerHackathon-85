@@ -16,8 +16,8 @@ import { SubContentContainer } from "./SubContentContainer";
 import { Section } from "./Section";
 
 interface HomeScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, Route.Home>;
-  route: RouteProp<RootStackParamList, Route.Home>;
+  navigation: StackNavigationProp<RootStackParamList, Route.InvestorHome>;
+  route: RouteProp<RootStackParamList, Route.InvestorHome>;
 }
 
 export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
@@ -72,16 +72,22 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
             title="Performance & Account"
             content={<Text>(Insert Content Here)</Text>}
             onCardPress={() => {
-              navigation.navigate(Route.PerformanceAccount);
+              navigation.navigate(Route.InvestorPerformanceAccount);
             }}
             onViewMore={() => {
-              navigation.navigate(Route.PerformanceAccount);
+              navigation.navigate(Route.InvestorPerformanceAccount);
             }}
           />
           <Expander vertical size={40} />
           <Section
             title="Browse Investment"
             content={<Text>(Insert Content Here)</Text>}
+            onCardPress={() => {
+              navigation.navigate(Route.InvestorBrowseInvestment);
+            }}
+            onViewMore={() => {
+              navigation.navigate(Route.InvestorBrowseInvestment);
+            }}
           />
           <Expander vertical size={40} />
           <Section

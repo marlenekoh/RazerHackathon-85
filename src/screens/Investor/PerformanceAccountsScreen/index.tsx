@@ -18,8 +18,11 @@ import { BackButtonContainer } from "./BackButtonContainer";
 import { ScreenHeader } from "@components/ScreenHeader";
 
 interface PerformanceAccountScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, Route.PerformanceAccount>;
-  route: RouteProp<RootStackParamList, Route.PerformanceAccount>;
+  navigation: StackNavigationProp<
+    RootStackParamList,
+    Route.InvestorPerformanceAccount
+  >;
+  route: RouteProp<RootStackParamList, Route.InvestorPerformanceAccount>;
 }
 
 export const PerformanceAccountScreen: React.FunctionComponent<PerformanceAccountScreenProps> = ({
@@ -40,7 +43,7 @@ export const PerformanceAccountScreen: React.FunctionComponent<PerformanceAccoun
   return (
     <PerformanceAccountScreenContainer>
       <ScreenHeader
-        onBack={() => navigation.goBack()}
+        onBack={() => navigation.pop()}
         title="Performance & Accounts"
       />
       <TabView

@@ -5,11 +5,17 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Provider as PaperProvider } from "react-native-paper";
 
-import { PerformanceAccountScreen } from "@screens/PerformanceAccountsScreen";
+import {
+  PerformanceAccountScreen as InvestorPerformanceAccountScreen,
+  HomeScreen as InvestorHomeScreen,
+  BrowseInvestmentScreen as InvestorBrowseInvestmentScreen,
+} from "@screens/Investor";
+import { HomeScreen as SmeHomeScreen } from "@screens/Sme";
 import { HomeScreen } from "@screens/HomeScreen";
 import { Route } from "@common/Route";
 
 import config from "./awsconfiguration.json";
+import {} from "@screens/Investor/BrowseInvestmentScreen";
 
 const Stack = createStackNavigator();
 Amplify.configure(config);
@@ -29,8 +35,23 @@ const App: React.FunctionComponent = () => {
             options={screenOptions}
           />
           <Stack.Screen
-            name={Route.PerformanceAccount}
-            component={PerformanceAccountScreen}
+            name={Route.InvestorHome}
+            component={InvestorHomeScreen}
+            options={screenOptions}
+          />
+          <Stack.Screen
+            name={Route.InvestorPerformanceAccount}
+            component={InvestorPerformanceAccountScreen}
+            options={screenOptions}
+          />
+          <Stack.Screen
+            name={Route.SmeHome}
+            component={SmeHomeScreen}
+            options={screenOptions}
+          />
+          <Stack.Screen
+            name={Route.InvestorBrowseInvestment}
+            component={InvestorBrowseInvestmentScreen}
             options={screenOptions}
           />
         </Stack.Navigator>
