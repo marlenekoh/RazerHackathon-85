@@ -20,6 +20,9 @@ export const GrantsScreen: React.FunctionComponent<GrantsScreenProps> = ({
   navigation,
   route,
 }) => {
+  const navigateToLoans = (applied: boolean, approved?: boolean) =>
+    navigation.navigate(Route.SmeLoans, { applied, approved });
+
   const NewTab = () => {
     const [value, setValue] = useState("");
     return (
@@ -50,13 +53,13 @@ export const GrantsScreen: React.FunctionComponent<GrantsScreenProps> = ({
         <ScrollView>
           <Expander size={20}>
             <Expander vertical size={20} />
-            <Section />
+            <Section onPress={() => navigateToLoans(false)} />
             <Expander vertical size={20} />
-            <Section />
+            <Section onPress={() => navigateToLoans(false)} />
             <Expander vertical size={20} />
-            <Section />
+            <Section onPress={() => navigateToLoans(false)} />
             <Expander vertical size={20} />
-            <Section />
+            <Section onPress={() => navigateToLoans(false)} />
           </Expander>
         </ScrollView>
       </>
@@ -93,8 +96,15 @@ export const GrantsScreen: React.FunctionComponent<GrantsScreenProps> = ({
         <ScrollView>
           <Expander size={20}>
             <Expander vertical size={20} />
-            <Section applied />
+            <Section applied onPress={() => navigateToLoans(true)} />
+            <Expander vertical size={20} />
+            <Section
+              applied
+              approved
+              onPress={() => navigateToLoans(true, true)}
+            />
           </Expander>
+          <Expander vertical size={30} />
         </ScrollView>
       </>
     );
