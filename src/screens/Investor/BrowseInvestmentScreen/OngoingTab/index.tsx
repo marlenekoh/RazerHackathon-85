@@ -6,6 +6,8 @@ import { Text } from "@components/Text";
 import { Expander } from "@components/Expander";
 import { Row } from "@components/Row";
 
+import { CompanyCard } from "../CompanyCard";
+
 export const OngoingTab: React.FunctionComponent = () => {
   const [value, setValue] = useState("");
   const cardData = [
@@ -38,7 +40,11 @@ export const OngoingTab: React.FunctionComponent = () => {
   return (
     <>
       <Expander vertical size={20} />
-      <Searchbar value={value} placeholder="Search" />
+      <Searchbar
+        value={value}
+        placeholder="Search"
+        onChangeText={(text) => setValue(text)}
+      />
       <Card onPress={() => {}}>
         <Card.Content>
           <Text>Filtered by: Industry Covered</Text>
@@ -51,46 +57,8 @@ export const OngoingTab: React.FunctionComponent = () => {
           keyExtractor={(item) => {
             return item.id.toString();
           }}
-          renderItem={({ item }) => {
-            const { company, country, fundsRequired, perAnnum, risk } = item;
-            return (
-              <Expander size={18}>
-                <Expander vertical size={6}>
-                  <Card>
-                    <Card.Content>
-                      <Row>
-                        <Text h3>{company}</Text>
-                        <Expander />
-                        <Text h3>@{perAnnum}% p.a.</Text>
-                      </Row>
-                      <Text p1>{country}</Text>
-                      <Expander vertical size={8} />
-                      <Expander size={12}>
-                        <Text>
-                          <Text h5 color="blue">
-                            {fundsRequired}%
-                          </Text>{" "}
-                          of <Text h5>funds required</Text>
-                        </Text>
-                        <ProgressBar progress={fundsRequired / 100} />
-                        <Expander vertical size={12} />
-                        <Row>
-                          <Chip>Industry Name</Chip>
-                          <Expander size={12} />
-                          <Chip>{risk} Risk</Chip>
-                          <Expander />
-                        </Row>
-                      </Expander>
-                    </Card.Content>
-                    <Card.Actions>
-                      <Expander />
-                      <Button>Learn More</Button>
-                    </Card.Actions>
-                  </Card>
-                </Expander>
-              </Expander>
-            );
-          }}
+          ListFooterComponent={() => <Expander vertical size={40} />}
+          renderItem={({ item }) => <CompanyCard {...item} />}
         />
       </View>
     </>
