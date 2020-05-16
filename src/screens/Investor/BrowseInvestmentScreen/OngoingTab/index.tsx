@@ -6,9 +6,24 @@ import { Text } from "@components/Text";
 import { Expander } from "@components/Expander";
 import { Row } from "@components/Row";
 
-import { CompanyCard } from "../CompanyCard";
+import { CompanyCard } from "../../CompanyCard";
 
-export const OngoingTab: React.FunctionComponent = () => {
+interface OngoingTabProps {
+  navigateToCard: (cardProps: {
+    company: string;
+    country: string;
+    fundsRequired: number;
+    industryName: string;
+    perAnnum: number;
+    risk: string;
+    invested?: boolean;
+    onPress?: () => void;
+  }) => void;
+}
+
+export const OngoingTab: React.FunctionComponent<OngoingTabProps> = ({
+  navigateToCard,
+}) => {
   const [value, setValue] = useState("");
   const cardData = [
     {
@@ -18,6 +33,8 @@ export const OngoingTab: React.FunctionComponent = () => {
       fundsRequired: 10,
       perAnnum: 12,
       risk: "Low",
+      invested: false,
+      industryName: "Food Manufacturing & Services",
     },
     {
       id: 2,
@@ -26,6 +43,8 @@ export const OngoingTab: React.FunctionComponent = () => {
       fundsRequired: 30,
       perAnnum: 10,
       risk: "High",
+      invested: false,
+      industryName: "Industry Name",
     },
     {
       id: 3,
@@ -34,6 +53,8 @@ export const OngoingTab: React.FunctionComponent = () => {
       fundsRequired: 15,
       perAnnum: 50,
       risk: "Low",
+      invested: false,
+      industryName: "Industry Name",
     },
   ];
 
@@ -58,7 +79,9 @@ export const OngoingTab: React.FunctionComponent = () => {
             return item.id.toString();
           }}
           ListFooterComponent={() => <Expander vertical size={40} />}
-          renderItem={({ item }) => <CompanyCard {...item} />}
+          renderItem={({ item }) => (
+            <CompanyCard {...item} onPress={() => navigateToCard(item)} />
+          )}
         />
       </View>
     </>

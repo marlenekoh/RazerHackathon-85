@@ -3,9 +3,25 @@ import React, { useState } from "react";
 import { Text } from "@components/Text";
 import { Expander } from "@components/Expander";
 import { Searchbar, Card } from "react-native-paper";
-import { CompanyCard } from "../CompanyCard";
+import { CompanyCard } from "../../CompanyCard";
+import { RootStackParamList } from "@common/Route";
 
-export const InvestedTab: React.FunctionComponent = () => {
+interface InvestedTabProps {
+  navigateToCard: (cardProps: {
+    company: string;
+    country: string;
+    fundsRequired: number;
+    perAnnum: number;
+    risk: string;
+    invested?: boolean;
+    industryName: string;
+    onPress?: () => void;
+  }) => void;
+}
+
+export const InvestedTab: React.FunctionComponent<InvestedTabProps> = ({
+  navigateToCard,
+}) => {
   const [value, setValue] = useState("");
   const cardData = {
     id: 1,
@@ -14,6 +30,7 @@ export const InvestedTab: React.FunctionComponent = () => {
     fundsRequired: 10,
     perAnnum: 12,
     risk: "Low",
+    industryName: "Food Manufacturing & Services",
   };
 
   return (
@@ -24,12 +41,16 @@ export const InvestedTab: React.FunctionComponent = () => {
         placeholder="Search"
         onChangeText={(text) => setValue(text)}
       />
-      <Card onPress={() => {}}>
+      <Card>
         <Card.Content>
           <Text>Filtered by: Industry Covered</Text>
         </Card.Content>
       </Card>
-      <CompanyCard invested {...cardData} />
+      <CompanyCard
+        invested
+        {...cardData}
+        onPress={() => navigateToCard({ invested: true, ...cardData })}
+      />
     </>
   );
 };

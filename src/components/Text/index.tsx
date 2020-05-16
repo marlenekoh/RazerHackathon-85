@@ -7,6 +7,7 @@ export interface TextStyle {
   h3?: boolean;
   h4?: boolean;
   h5?: boolean;
+  h6?: boolean;
   p1?: boolean;
   p2?: boolean;
 }

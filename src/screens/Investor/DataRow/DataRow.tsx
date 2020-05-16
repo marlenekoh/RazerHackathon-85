@@ -1,7 +1,8 @@
 import React from "react";
+
+import { Expander } from "@components/Expander";
 import { Row } from "@components/Row";
 import { Text } from "@components/Text";
-import { Expander } from "@components/Expander";
 
 interface DataRowProps {
   label: string;

@@ -35,8 +35,20 @@ export const BrowseInvestmentScreen: React.FunctionComponent<HomeScreenProps> = 
     { key: "second", title: "invested" },
   ]);
   const renderScene = SceneMap({
-    first: () => <OngoingTab />,
-    second: () => <InvestedTab />,
+    first: () => (
+      <OngoingTab
+        navigateToCard={(cardProps) =>
+          navigation.navigate(Route.InvestorSmeDetails, cardProps)
+        }
+      />
+    ),
+    second: () => (
+      <InvestedTab
+        navigateToCard={(cardProps) =>
+          navigation.navigate(Route.InvestorSmeDetails, cardProps)
+        }
+      />
+    ),
   });
   const initialLayout = { width: Dimensions.get("window").width };
 

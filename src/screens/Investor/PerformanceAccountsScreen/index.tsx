@@ -14,7 +14,6 @@ import { Center } from "@components/Center";
 import { PerformanceAccountScreenContainer } from "./PerformanceAccountScreenContainer";
 import { PerformanceTab } from "./PerformanceTab";
 import { AccountTab } from "./AccountTab";
-import { BackButtonContainer } from "./BackButtonContainer";
 import { ScreenHeader } from "@components/ScreenHeader";
 
 interface PerformanceAccountScreenProps {

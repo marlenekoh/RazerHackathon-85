@@ -7,10 +7,12 @@ import { Text } from "@components/Text";
 interface CompanyCardProps {
   company: string;
   country: string;
+  industryName: string;
   fundsRequired: number;
   perAnnum: number;
   risk: string;
   invested?: boolean;
+  onPress?: () => void;
 }
 
 export const CompanyCard: React.FunctionComponent<CompanyCardProps> = ({
@@ -20,11 +22,13 @@ export const CompanyCard: React.FunctionComponent<CompanyCardProps> = ({
   perAnnum,
   risk,
   invested,
+  industryName,
+  onPress = () => {},
 }) => {
   return (
     <Expander size={18}>
       <Expander vertical size={6}>
-        <Card>
+        <Card onPress={onPress}>
           <Card.Content>
             <Row>
               <Text h3>{company}</Text>
@@ -43,7 +47,7 @@ export const CompanyCard: React.FunctionComponent<CompanyCardProps> = ({
               <ProgressBar progress={fundsRequired / 100} />
               <Expander vertical size={12} />
               <Row>
-                <Chip>Industry Name</Chip>
+                <Chip>{industryName}</Chip>
                 <Expander size={12} />
                 <Chip>{risk} Risk</Chip>
                 <Expander />

@@ -9,6 +9,7 @@ import {
   PerformanceAccountScreen as InvestorPerformanceAccountScreen,
   HomeScreen as InvestorHomeScreen,
   BrowseInvestmentScreen as InvestorBrowseInvestmentScreen,
+  SmeDetailsScreen as InvestorSmeDetailsScreen,
 } from "@screens/Investor";
 import { HomeScreen as SmeHomeScreen } from "@screens/Sme";
 import { HomeScreen } from "@screens/HomeScreen";
@@ -44,14 +45,20 @@ const App: React.FunctionComponent = () => {
             component={InvestorPerformanceAccountScreen}
             options={screenOptions}
           />
-          <Stack.Screen
-            name={Route.SmeHome}
-            component={SmeHomeScreen}
-            options={screenOptions}
-          />
+
           <Stack.Screen
             name={Route.InvestorBrowseInvestment}
             component={InvestorBrowseInvestmentScreen}
+            options={screenOptions}
+          />
+          <Stack.Screen
+            name={Route.InvestorSmeDetails}
+            component={InvestorSmeDetailsScreen}
+            options={screenOptions}
+          />
+          <Stack.Screen
+            name={Route.SmeHome}
+            component={SmeHomeScreen}
             options={screenOptions}
           />
         </Stack.Navigator>
