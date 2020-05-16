@@ -6,7 +6,7 @@ import { Divider } from "@components/Divider";
 import { Text } from "@components/Text";
 import { Expander } from "@components/Expander";
 import { Center } from "@components/Center";
-import { DataRow } from "../../DataRow/DataRow";
+import { DataRow } from "@components/DataRow";
 import { Row } from "@components/Row";
 
 export const AccountTab: React.FunctionComponent = () => {

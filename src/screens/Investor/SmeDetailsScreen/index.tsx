@@ -9,7 +9,7 @@ import { Row } from "@components/Row";
 import { Expander } from "@components/Expander";
 import { Text } from "@components/Text";
 import { Divider } from "@components/Divider";
-import { DataGroup } from "../DataGroup/DataGroup";
+import { DataGroup } from "../../../components/DataGroup";
 import { ScrollView } from "react-native-gesture-handler";
 
 interface SmeDetailsScreenProps {

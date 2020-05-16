@@ -14,6 +14,7 @@ export interface TextStyle {
 
 interface TextProps extends TextStyle {
   color?: string;
+  wrap?: boolean;
   align?: "center" | "left" | "right" | "justify";
 }
 
@@ -22,4 +23,11 @@ export const Text = styled.Text<TextProps>`
   ${(props) => getFontStyle(props).fontStyle}
   color: ${({ color }) => (color ? color : "black")};
   text-align:${({ align }) => align || "left"};
+  ${({ wrap }) =>
+    wrap &&
+    `
+    flex: 1;
+  flex-wrap: wrap;
+  `}
+
 `;

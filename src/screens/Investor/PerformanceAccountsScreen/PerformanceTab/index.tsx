@@ -8,8 +8,8 @@ import { Row } from "@components/Row";
 import { Divider } from "@components/Divider";
 import { Card } from "react-native-paper";
 
-import { DataRow } from "../../DataRow/DataRow";
-import { DataGroup } from "../../DataGroup/DataGroup";
+import { DataRow } from "@components/DataRow";
+import { DataGroup } from "@components/DataGroup";
 
 export const PerformanceTab: React.FunctionComponent = () => {
   return (

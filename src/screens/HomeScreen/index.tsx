@@ -29,7 +29,12 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
           Investor
         </Button>
         <Expander vertical size={50} />
-        <Button mode="contained">SME</Button>
+        <Button
+          mode="contained"
+          onPress={() => navigation.navigate(Route.SmeHome)}
+        >
+          SME
+        </Button>
       </Center>
     </HomeScreenContainer>
   );

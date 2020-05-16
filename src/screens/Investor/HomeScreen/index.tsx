@@ -14,7 +14,7 @@ import { HomeScreenContainer } from "./HomeScreenContainer";
 import { ContentContainer } from "./ContentContainer";
 import { SubContentContainer } from "./SubContentContainer";
 import { Section } from "./Section";
-import { DataGroup } from "../DataGroup/DataGroup";
+import { DataGroup } from "@components/DataGroup";
 
 interface HomeScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.InvestorHome>;
