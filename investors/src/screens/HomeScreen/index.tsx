@@ -13,9 +13,10 @@ import { HomeScreenContainer } from "./HomeScreenContainer";
 import { ContentContainer } from "./ContentContainer";
 import { SubContentContainer } from "./SubContentContainer";
 import { Section } from "./Section";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 interface HomeScreenProps {
-  navigation: DrawerNavigationProp<RootStackParamList, Route.Home>;
+  navigation: StackNavigationProp<RootStackParamList, Route.Home>;
   route: RouteProp<RootStackParamList, Route.Home>;
 }
 
@@ -25,7 +26,10 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
 }) => {
   return (
     <HomeScreenContainer>
-      <IconButton icon="menu" onPress={() => navigation.openDrawer()} />
+      <Row>
+        <Expander />
+        <IconButton icon="bell" onPress={() => {}} />
+      </Row>
       <ContentContainer>
         <Avatar.Image
           source={{
