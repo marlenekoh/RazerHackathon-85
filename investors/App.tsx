@@ -5,7 +5,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Provider as PaperProvider } from "react-native-paper";
 
+import { PerformanceAccountScreen } from "@screens/PerformanceAccountsScreen";
 import { HomeScreen } from "@screens/HomeScreen";
+import { Route } from "@common/Route";
+
 import config from "./awsconfiguration.json";
 
 const Stack = createStackNavigator();
@@ -21,8 +24,13 @@ const App: React.FunctionComponent = () => {
       <PaperProvider>
         <Stack.Navigator>
           <Stack.Screen
-            name="Home"
+            name={Route.Home}
             component={HomeScreen}
+            options={screenOptions}
+          />
+          <Stack.Screen
+            name={Route.PerformanceAccount}
+            component={PerformanceAccountScreen}
             options={screenOptions}
           />
         </Stack.Navigator>

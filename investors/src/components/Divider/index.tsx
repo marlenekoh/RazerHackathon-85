@@ -12,5 +12,5 @@ export const Divider = styled.View<DividerProps>`
     border-left-width: 1px;`
       : `width: ${length ? `${length}px` : "auto"};
       border-bottom-color: #979797;
-    border-bottom-width: 1px;`}
+    border-bottom-width: 1px;`};
 `;
