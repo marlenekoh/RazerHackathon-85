@@ -9,6 +9,8 @@ import { Card, Chip, Button } from "react-native-paper";
 import { Expander } from "@components/Expander";
 import { Row } from "@components/Row";
 import { Section } from "./Section";
+import { Color } from "@common/Color";
+import { ScreenContainer } from "@components/ScreenContainer";
 
 interface DigitalisationDetailsScreenProps {
   navigation: StackNavigationProp<
@@ -32,17 +34,22 @@ export const DigitalisationDetailsScreen: React.FunctionComponent<Digitalisation
     completed,
   } = route.params;
   return (
-    <>
-      <ScreenHeader onBack={() => navigation.pop()} />
+    <ScreenContainer>
+      <ScreenHeader onBack={() => navigation.pop()} title="digitalisation" />
       <ScrollView>
         <Expander size={18}>
           <Section title={title} text={subtitle} completed={completed} />
           <Expander vertical size={12} />
-          <Card>
+          <Card style={{ backgroundColor: Color.Foreground1 }}>
             <Card.Content>
               <Text h4>Best in-Class Practices from</Text>
               <Row>
-                <Chip>{industryName}</Chip>
+                <Chip
+                  textStyle={{ fontWeight: "bold" }}
+                  style={{ backgroundColor: Color.Highlight2 }}
+                >
+                  {industryName}
+                </Chip>
                 <Expander />
               </Row>
               <Expander vertical size={18} />
@@ -50,7 +57,7 @@ export const DigitalisationDetailsScreen: React.FunctionComponent<Digitalisation
             </Card.Content>
           </Card>
           <Expander vertical size={12} />
-          <Card>
+          <Card style={{ backgroundColor: Color.Foreground1 }}>
             <Card.Content>
               <Text h5>Are you all set?</Text>
               <Expander vertical size={18} />
@@ -63,17 +70,19 @@ export const DigitalisationDetailsScreen: React.FunctionComponent<Digitalisation
           </Card>
           <Expander vertical size={12} />
           {completed ? (
-            <Button mode="contained" disabled>
+            <Button mode="contained" color={Color.HighlightDisabled}>
               Purchased
             </Button>
           ) : (
             <>
-              <Button mode="contained">Buy through RazerPay</Button>
+              <Button mode="contained" color={Color.Highlight1}>
+                Buy through RazerPay
+              </Button>
               <Expander vertical size={12} />
               <Button
                 mode="outlined"
-                style={{ borderWidth: 2, borderColor: "blue" }}
-                labelStyle={{ color: "blue" }}
+                style={{ borderWidth: 2, borderColor: Color.Highlight1 }}
+                labelStyle={{ color: Color.Highlight1 }}
               >
                 Upload Proof of Purchase
               </Button>
@@ -82,6 +91,6 @@ export const DigitalisationDetailsScreen: React.FunctionComponent<Digitalisation
         </Expander>
         <Expander vertical size={30} />
       </ScrollView>
-    </>
+    </ScreenContainer>
   );
 };

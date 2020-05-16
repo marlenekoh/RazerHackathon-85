@@ -4,6 +4,7 @@ import { Row } from "@components/Row";
 import { Expander } from "@components/Expander";
 import { Text } from "@components/Text";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Color } from "@common/Color";
 
 interface SectionProps {
   title: string;
@@ -18,7 +19,7 @@ export const Section: React.FunctionComponent<SectionProps> = ({
 }) => {
   const textProps = completed ? { color: "gray" } : {};
   return (
-    <Card>
+    <Card style={{ backgroundColor: Color.Foreground1 }}>
       <Card.Content>
         <Row>
           <Text h1 {...textProps} wrap>
@@ -29,13 +30,15 @@ export const Section: React.FunctionComponent<SectionProps> = ({
         <Expander vertical size={12} />
       </Card.Content>
       {completed && (
-        <Card.Actions style={{ backgroundColor: "lightgray" }}>
+        <Card.Actions style={{ backgroundColor: Color.Foreground3 }}>
           <Row>
             <Expander />
-            <Text h5>100% completed</Text>
+            <Text h5 color={Color.TextTertiary}>
+              100% completed
+            </Text>
             <IconButton
               icon="checkbox-marked-circle"
-              color="blue"
+              color={Color.HighlightDisabled}
               style={{ marginTop: -2, marginBottom: -2 }}
             />
             <Expander />

@@ -22,6 +22,8 @@ import { FundingTab } from "./FundingTab";
 import { DigitalisationTab } from "./DigitalisationTab";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { HorizontalTabs } from "@components/HorizontalTabs";
+import { ScreenContainer } from "@components/ScreenContainer";
+import { Color } from "@common/Color";
 
 interface HomeScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.SmeHome>;
@@ -33,8 +35,11 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
   route,
 }) => {
   return (
-    <HomeScreenContainer>
-      <IconButton icon="menu" onPress={() => {}} />
+    <ScreenContainer>
+      <Row>
+        <Expander />
+        <IconButton icon="bell" color={Color.Highlight1} onPress={() => {}} />
+      </Row>
       <Center>
         <TouchableOpacity onPress={() => navigation.navigate(Route.SmeProfile)}>
           <Avatar.Image
@@ -49,25 +54,25 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
         <Text h2>Really Long Company Name</Text>
       </Center>
       <Expander vertical size={12} />
-      <Card>
+      <Card style={{ backgroundColor: Color.Foreground1 }}>
         <Card.Content>
           <Center>
             <Text>This is what you have:</Text>
             <Text h1>S$30,000.00</Text>
             <Expander size={12}>
-              <ProgressBar progress={0.6} />
+              <ProgressBar progress={0.6} color={Color.Highlight1} />
             </Expander>
             <Expander vertical size={8} />
           </Center>
           <Expander vertical size={8} />
           <Expander size={12}>
             <Text p2>
-              <Text p2 color="blue">
+              <Text p2 color={Color.Highlight1}>
                 60%
               </Text>{" "}
               of goal amount obtained!
             </Text>
-            <ProgressBar progress={60 / 100} />
+            <ProgressBar progress={60 / 100} color={Color.Highlight1} />
             <Expander vertical size={20} />
             <Row>
               <View>
@@ -79,7 +84,7 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
                 icon="checkbox-marked-circle"
                 size={25}
                 style={{ marginRight: -2 }}
-                color="blue"
+                color={Color.Highlight1}
               />
               <IconButton
                 icon="checkbox-blank-circle-outline"
@@ -88,13 +93,13 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
                   marginRight: -2,
                   marginLeft: -2,
                 }}
-                color="blue"
+                color={Color.Highlight1}
               />
               <IconButton
                 icon="checkbox-blank-circle-outline"
                 size={25}
                 style={{ marginRight: -2, marginLeft: -2 }}
-                color="blue"
+                color={Color.Highlight1}
               />
               <IconButton
                 icon="gift"
@@ -103,7 +108,7 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
                   marginRight: -2,
                   marginLeft: -2,
                 }}
-                color="red"
+                color={Color.Highlight2}
               />
             </Row>
           </Expander>
@@ -134,6 +139,6 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
           ),
         }}
       />
-    </HomeScreenContainer>
+    </ScreenContainer>
   );
 };

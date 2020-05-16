@@ -10,6 +10,8 @@ import { Expander } from "@components/Expander";
 import { Divider } from "@components/Divider";
 import { Card, Button, IconButton } from "react-native-paper";
 import { ScrollView } from "react-native";
+import { ScreenContainer } from "@components/ScreenContainer";
+import { Color } from "@common/Color";
 
 interface RazerPeerScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.SmeGrants>;
@@ -21,7 +23,7 @@ export const RazerPeerScreen: React.FunctionComponent<RazerPeerScreenProps> = ({
   route,
 }) => {
   return (
-    <>
+    <ScreenContainer>
       <ScreenHeader title="RazerPeer" onBack={() => navigation.pop()} />
       <ScrollView>
         <Row>
@@ -31,7 +33,7 @@ export const RazerPeerScreen: React.FunctionComponent<RazerPeerScreenProps> = ({
               <Text>Funds Raised</Text>
               <Text
                 underline
-                color="blue"
+                color={Color.Highlight1}
                 onPress={() => navigation.navigate(Route.SmeFundsRaised)}
               >
                 View Details
@@ -50,12 +52,15 @@ export const RazerPeerScreen: React.FunctionComponent<RazerPeerScreenProps> = ({
         </Row>
         <Expander vertical size={20} />
         <Expander size={18}>
-          <Card onPress={() => navigation.navigate(Route.SmeOutstandingLoans)}>
+          <Card
+            style={{ backgroundColor: Color.Foreground1 }}
+            onPress={() => navigation.navigate(Route.SmeOutstandingLoans)}
+          >
             <Card.Content>
               <Row>
                 <Text h2>Loan Repayment</Text>
                 <Expander />
-                <IconButton icon="arrow-right" />
+                <IconButton color={Color.TextPrimary} icon="arrow-right" />
               </Row>
               <Text>
                 You have <Text h5>3</Text> loan/s outstanding this month.
@@ -67,19 +72,19 @@ export const RazerPeerScreen: React.FunctionComponent<RazerPeerScreenProps> = ({
             <Row>
               <Expander size={14} />
               <Text h2>Chat with Investor/s</Text>
-              <IconButton icon="chat" />
+              <IconButton color={Color.Highlight1} icon="chat" />
             </Row>
           </Expander>
-          <Card>
+          <Card style={{ backgroundColor: Color.Foreground1 }}>
             <Card.Content>
               <Row>
                 <Text h2>Lucy A.</Text>
                 <Expander />
-                <Text color="blue">New Message</Text>
+                <Text color={Color.Highlight2}>New Message</Text>
                 <IconButton
                   icon="checkbox-blank-circle"
                   size={12}
-                  color="blue"
+                  color={Color.Highlight2}
                   style={{ marginLeft: 2, marginRight: 0 }}
                 />
               </Row>
@@ -88,21 +93,23 @@ export const RazerPeerScreen: React.FunctionComponent<RazerPeerScreenProps> = ({
             <Card.Actions>
               <Row>
                 <Expander />
-                <Button labelStyle={{ color: "black" }}>View Message</Button>
+                <Button labelStyle={{ color: Color.Highlight1 }}>
+                  View Message
+                </Button>
               </Row>
             </Card.Actions>
           </Card>
           <Expander vertical size={12} />
-          <Card>
+          <Card style={{ backgroundColor: Color.Foreground1 }}>
             <Card.Content>
               <Row>
                 <Text h2>Gary N.</Text>
                 <Expander />
-                <Text color="blue">New Message</Text>
+                <Text color={Color.Highlight2}>New Message</Text>
                 <IconButton
                   icon="checkbox-blank-circle"
                   size={12}
-                  color="blue"
+                  color={Color.Highlight2}
                   style={{ marginLeft: 2, marginRight: 0 }}
                 />
               </Row>
@@ -111,12 +118,14 @@ export const RazerPeerScreen: React.FunctionComponent<RazerPeerScreenProps> = ({
             <Card.Actions>
               <Row>
                 <Expander />
-                <Button labelStyle={{ color: "black" }}>View Message</Button>
+                <Button labelStyle={{ color: Color.Highlight1 }}>
+                  View Message
+                </Button>
               </Row>
             </Card.Actions>
           </Card>
           <Expander vertical size={12} />
-          <Card>
+          <Card style={{ backgroundColor: Color.Foreground1 }}>
             <Card.Content>
               <Row>
                 <Text h2>Meryl C.</Text>
@@ -127,13 +136,15 @@ export const RazerPeerScreen: React.FunctionComponent<RazerPeerScreenProps> = ({
             <Card.Actions>
               <Row>
                 <Expander />
-                <Button labelStyle={{ color: "black" }}>View Message</Button>
+                <Button labelStyle={{ color: Color.Highlight1 }}>
+                  View Message
+                </Button>
               </Row>
             </Card.Actions>
           </Card>
         </Expander>
         <Expander vertical size={30} />
       </ScrollView>
-    </>
+    </ScreenContainer>
   );
 };

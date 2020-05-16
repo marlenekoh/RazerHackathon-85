@@ -12,6 +12,7 @@ import { LoansScreenContainer } from "./LoansScreenContainer";
 import { DataGroup } from "@components/DataGroup";
 import { Divider } from "@components/Divider";
 import { Center } from "@components/Center";
+import { Color } from "@common/Color";
 
 interface LoanSelectScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.SmeLoanSelect>;
@@ -39,10 +40,11 @@ export const LoanSelectScreen: React.FunctionComponent<LoanSelectScreenProps> = 
             <>
               <Text>Hey Name,</Text>
               <Text h4>
-                You have <Text color="blue">1</Text> loan/s outstanding:
+                You have <Text color={Color.Highlight1}>1</Text> loan/s
+                outstanding:
               </Text>
               <Expander vertical size={30} />
-              <Card>
+              <Card style={{ backgroundColor: Color.Foreground1 }}>
                 <Card.Content>
                   <Row>
                     <Text h3>Syndicated Loan</Text>
@@ -77,7 +79,7 @@ export const LoanSelectScreen: React.FunctionComponent<LoanSelectScreenProps> = 
                   </Row>
                 </Card.Content>
               </Card>
-              <Card style={{ backgroundColor: "lightgray" }}>
+              <Card style={{ backgroundColor: Color.Foreground3 }}>
                 <Card.Content>
                   <Expander vertical size={20} />
                   <Text h3>Repayment Amount (SGD)</Text>
@@ -106,7 +108,7 @@ export const LoanSelectScreen: React.FunctionComponent<LoanSelectScreenProps> = 
               <Text>Hey Name,</Text>
               <Text h4>You chose this loan:</Text>
               <Expander vertical size={30} />
-              <Card>
+              <Card style={{ backgroundColor: Color.Foreground1 }}>
                 <Card.Content>
                   <Row>
                     <Text h3>Syndicated Loan</Text>
@@ -116,18 +118,18 @@ export const LoanSelectScreen: React.FunctionComponent<LoanSelectScreenProps> = 
                   <Text>Singapore</Text>
                   <Expander vertical size={12} />
                   <Text>
-                    <Text h5 color="blue">
+                    <Text h5 color={Color.Highlight1}>
                       100%
                     </Text>{" "}
                     of <Text h5>loan proposal funded</Text>
                   </Text>
-                  <ProgressBar progress={1} />
+                  <ProgressBar progress={1} color={Color.Highlight1} />
                   <Expander vertical size={12} />
                   <Text>DBS & Standard Chartered split</Text>
                 </Card.Content>
               </Card>
               <Expander vertical size={12} />
-              <Card>
+              <Card style={{ backgroundColor: Color.Foreground1 }}>
                 <Card.Content>
                   <Row>
                     <Expander>
@@ -150,14 +152,14 @@ export const LoanSelectScreen: React.FunctionComponent<LoanSelectScreenProps> = 
               </Card>
               <Expander vertical size={12} />
 
-              <Card>
+              <Card style={{ backgroundColor: Color.Foreground1 }}>
                 <Card.Content>
                   <Text h3>Breakdown of Loan</Text>
                 </Card.Content>
               </Card>
               <Expander vertical size={12} />
 
-              <Card>
+              <Card style={{ backgroundColor: Color.Foreground1 }}>
                 <Card.Content>
                   <Row>
                     <Expander>

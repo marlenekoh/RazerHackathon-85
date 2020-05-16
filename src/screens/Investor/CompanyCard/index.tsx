@@ -3,6 +3,7 @@ import { Expander } from "@components/Expander";
 import { Button, Card, ProgressBar, Chip } from "react-native-paper";
 import { Row } from "@components/Row";
 import { Text } from "@components/Text";
+import { Color } from "@common/Color";
 
 interface CompanyCardProps {
   company: string;
@@ -13,6 +14,7 @@ interface CompanyCardProps {
   risk: string;
   invested?: boolean;
   onPress?: () => void;
+  showActions?: boolean;
 }
 
 export const CompanyCard: React.FunctionComponent<CompanyCardProps> = ({
@@ -22,13 +24,14 @@ export const CompanyCard: React.FunctionComponent<CompanyCardProps> = ({
   perAnnum,
   risk,
   invested,
+  showActions,
   industryName,
   onPress = () => {},
 }) => {
   return (
     <Expander size={18}>
       <Expander vertical size={6}>
-        <Card onPress={onPress}>
+        <Card style={{ backgroundColor: Color.Foreground1 }} onPress={onPress}>
           <Card.Content>
             <Row>
               <Text h3>{company}</Text>
@@ -39,34 +42,54 @@ export const CompanyCard: React.FunctionComponent<CompanyCardProps> = ({
             <Expander vertical size={8} />
             <Expander size={12}>
               <Text>
-                <Text h5 color="blue">
+                <Text h5 color={Color.Highlight1}>
                   {fundsRequired}%
                 </Text>{" "}
                 of <Text h5>funds required</Text>
               </Text>
-              <ProgressBar progress={fundsRequired / 100} />
+              <ProgressBar
+                progress={fundsRequired / 100}
+                color={Color.Highlight1}
+              />
               <Expander vertical size={12} />
               <Row>
-                <Chip>{industryName}</Chip>
+                <Chip
+                  textStyle={{ fontWeight: "bold" }}
+                  style={{ backgroundColor: Color.Highlight2 }}
+                >
+                  {industryName}
+                </Chip>
                 <Expander size={12} />
-                <Chip>{risk} Risk</Chip>
+                <Chip
+                  textStyle={{ fontWeight: "bold" }}
+                  style={{
+                    backgroundColor:
+                      risk === "Low" ? Color.Highlight2 : Color.Highlight1,
+                  }}
+                >
+                  {risk} Risk
+                </Chip>
                 <Expander />
               </Row>
             </Expander>
             <Expander vertical size={12} />
           </Card.Content>
-          <Card.Actions>
-            {invested && (
-              <>
-                <Expander size={12} />
-                <Text p2>
-                  You invested <Text h5>$1,200</Text> in this loan.
-                </Text>
-              </>
-            )}
-            <Expander />
-            <Button>Learn More</Button>
-          </Card.Actions>
+          {showActions && (
+            <Card.Actions
+              style={invested ? { backgroundColor: Color.Foreground3 } : {}}
+            >
+              {invested && (
+                <>
+                  <Expander size={12} />
+                  <Text p2 numberOfLines={1}>
+                    You invested <Text h5>$1,200</Text> in this loan.
+                  </Text>
+                </>
+              )}
+              <Expander />
+              <Button color={Color.Highlight1}>Learn More</Button>
+            </Card.Actions>
+          )}
         </Card>
       </Expander>
     </Expander>

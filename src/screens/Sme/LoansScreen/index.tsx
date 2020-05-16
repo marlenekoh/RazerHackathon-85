@@ -9,6 +9,8 @@ import { Button, Card, ProgressBar } from "react-native-paper";
 import { View, FlatList } from "react-native";
 import { Row } from "@components/Row";
 import { LoansScreenContainer } from "./LoansScreenContainer";
+import { Color } from "@common/Color";
+import { ScreenContainer } from "@components/ScreenContainer";
 
 interface LoansScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.SmeLoans>;
@@ -41,7 +43,7 @@ export const LoansScreen: React.FunctionComponent<LoansScreenProps> = ({
   ];
 
   return (
-    <LoansScreenContainer>
+    <ScreenContainer>
       <ScreenHeader
         title="loans"
         onBack={() => {
@@ -60,7 +62,10 @@ export const LoansScreen: React.FunctionComponent<LoansScreenProps> = ({
           renderItem={({ item }) => {
             const { company, perAnnum, funded } = item;
             return (
-              <Card onPress={() => navigation.navigate(Route.SmeLoanSelect)}>
+              <Card
+                style={{ backgroundColor: Color.Foreground1 }}
+                onPress={() => navigation.navigate(Route.SmeLoanSelect)}
+              >
                 <Card.Content>
                   <Row>
                     <Text h3>{company}</Text>
@@ -70,16 +75,19 @@ export const LoansScreen: React.FunctionComponent<LoansScreenProps> = ({
                   <Text>Singapore</Text>
                   <Expander vertical size={12} />
                   <Text>
-                    <Text h5 color="blue">
+                    <Text h5 color={Color.Highlight1}>
                       {funded}%
                     </Text>{" "}
                     of <Text h5>loan proposal funded</Text>
                   </Text>
-                  <ProgressBar progress={funded / 100} />
+                  <ProgressBar
+                    progress={funded / 100}
+                    color={Color.Highlight1}
+                  />
                 </Card.Content>
                 <Card.Actions>
                   <Expander />
-                  <Button>Learn More</Button>
+                  <Button color={Color.Highlight1}>Learn More</Button>
                 </Card.Actions>
               </Card>
             );
@@ -87,6 +95,6 @@ export const LoansScreen: React.FunctionComponent<LoansScreenProps> = ({
           ItemSeparatorComponent={() => <Expander vertical size={12} />}
         />
       </Expander>
-    </LoansScreenContainer>
+    </ScreenContainer>
   );
 };

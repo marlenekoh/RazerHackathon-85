@@ -8,6 +8,8 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList, Route } from "@common/Route";
 import { RouteProp } from "@react-navigation/native";
 import { SafeAreaView, ScrollView, View } from "react-native";
+import { Color } from "@common/Color";
+import { ScreenContainer } from "@components/ScreenContainer";
 
 interface ProfileScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.SmeProfile>;
@@ -19,7 +21,7 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> = ({
   route,
 }) => {
   return (
-    <>
+    <ScreenContainer>
       <ScreenHeader onBack={() => navigation.pop()} />
       <ScrollView>
         <Expander size={30}>
@@ -33,11 +35,15 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> = ({
             />
             <Expander size={20} />
             <View>
-              <Text>Really Long Name</Text>
+              <Text h5>Really Long Name</Text>
               <Text>Really Long Company Name</Text>
             </View>
             <Expander />
-            <IconButton icon="pencil" onPress={() => {}} />
+            <IconButton
+              color={Color.Highlight1}
+              icon="pencil"
+              onPress={() => {}}
+            />
           </Row>
         </Expander>
         <Expander vertical size={30} />
@@ -46,7 +52,7 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> = ({
           <Text h4>Industry</Text>
         </Row>
         <Expander vertical size={10} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <Row>
               <Expander size={14} />
@@ -61,7 +67,7 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> = ({
           <Text h4>Bank Account No.</Text>
         </Row>
         <Expander vertical size={10} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <Row>
               <Expander size={14} />
@@ -76,7 +82,7 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> = ({
           <Text h4>Loan Proposal Status</Text>
         </Row>
         <Expander vertical size={10} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <Row>
               <Expander size={14} />
@@ -85,13 +91,13 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> = ({
           </Card.Content>
         </Card>
         <Expander vertical size={4} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <Row>
               <Expander size={14} />
               <Text>Link to RazerPay</Text>
               <Expander />
-              <Text color="grey">Linked</Text>
+              <Text color={Color.HighlightDisabled}>Linked</Text>
               <Expander size={14} />
             </Row>
           </Card.Content>
@@ -103,13 +109,13 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> = ({
           <Text h4>Goal Amount Set S$</Text>
         </Row>
         <Expander vertical size={10} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <Row>
               <Expander size={14} />
               <Text>****</Text>
               <Expander />
-              <Text>Tap to View</Text>
+              <Text color={Color.Highlight1}>Tap to View</Text>
               <Expander size={14} />
             </Row>
           </Card.Content>
@@ -119,10 +125,10 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> = ({
         <Row>
           <Expander size={30} />
           <Text h4>Razer's Credit Scoring</Text>
-          <IconButton icon="information" color="grey" />
+          <IconButton icon="information" color={Color.Highlight1} />
         </Row>
         <Expander vertical size={10} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <Row>
               <Expander size={14} />
@@ -138,6 +144,6 @@ export const ProfileScreen: React.FunctionComponent<ProfileScreenProps> = ({
         </Expander>
         <Expander vertical size={30} />
       </ScrollView>
-    </>
+    </ScreenContainer>
   );
 };

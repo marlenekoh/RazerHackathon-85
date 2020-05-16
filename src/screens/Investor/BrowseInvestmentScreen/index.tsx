@@ -2,11 +2,11 @@ import React from "react";
 import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList, Route } from "@common/Route";
-import { BrowseInvestmentScreenContainer } from "./BrowseInvestmentScreenContainer";
 import { ScreenHeader } from "@components/ScreenHeader";
 import { InvestedTab } from "./InvestedTab";
 import { OngoingTab } from "./OngoingTab";
 import { HorizontalTabs } from "@components/HorizontalTabs";
+import { ScreenContainer } from "@components/ScreenContainer";
 
 interface BrowseInvestmentScreenProps {
   navigation: StackNavigationProp<
@@ -21,7 +21,7 @@ export const BrowseInvestmentScreen: React.FunctionComponent<BrowseInvestmentScr
   route,
 }) => {
   return (
-    <BrowseInvestmentScreenContainer>
+    <ScreenContainer>
       <ScreenHeader title="Browse Investment" onBack={() => navigation.pop()} />
       <HorizontalTabs
         tab1={{
@@ -45,6 +45,6 @@ export const BrowseInvestmentScreen: React.FunctionComponent<BrowseInvestmentScr
           ),
         }}
       />
-    </BrowseInvestmentScreenContainer>
+    </ScreenContainer>
   );
 };

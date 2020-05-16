@@ -7,6 +7,7 @@ import { PerformanceTab } from "./PerformanceTab";
 import { AccountTab } from "./AccountTab";
 import { ScreenHeader } from "@components/ScreenHeader";
 import { HorizontalTabs } from "@components/HorizontalTabs";
+import { ScreenContainer } from "@components/ScreenContainer";
 
 interface PerformanceAccountScreenProps {
   navigation: StackNavigationProp<
@@ -21,7 +22,7 @@ export const PerformanceAccountScreen: React.FunctionComponent<PerformanceAccoun
   route,
 }) => {
   return (
-    <PerformanceAccountScreenContainer>
+    <ScreenContainer>
       <ScreenHeader
         onBack={() => navigation.pop()}
         title="Performance & Accounts"
@@ -36,6 +37,6 @@ export const PerformanceAccountScreen: React.FunctionComponent<PerformanceAccoun
           component: () => <AccountTab />,
         }}
       />
-    </PerformanceAccountScreenContainer>
+    </ScreenContainer>
   );
 };

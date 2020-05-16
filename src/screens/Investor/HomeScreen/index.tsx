@@ -10,11 +10,12 @@ import { Expander } from "@components/Expander";
 import { Divider } from "@components/Divider";
 import { Row } from "@components/Row";
 
-import { HomeScreenContainer } from "./HomeScreenContainer";
 import { ContentContainer } from "./ContentContainer";
 import { SubContentContainer } from "./SubContentContainer";
 import { Section } from "./Section";
 import { DataGroup } from "@components/DataGroup";
+import { ScreenContainer } from "@components/ScreenContainer";
+import { Color } from "@common/Color";
 
 interface HomeScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.InvestorHome>;
@@ -26,11 +27,11 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
   route,
 }) => {
   return (
-    <HomeScreenContainer>
+    <ScreenContainer>
       <ScrollView>
         <Row>
           <Expander />
-          <IconButton icon="bell" onPress={() => {}} />
+          <IconButton icon="bell" color={Color.Highlight1} onPress={() => {}} />
         </Row>
         <ContentContainer>
           <Avatar.Image
@@ -124,6 +125,6 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = ({
           />
         </Expander>
       </ScrollView>
-    </HomeScreenContainer>
+    </ScreenContainer>
   );
 };

@@ -7,6 +7,7 @@ import { Expander } from "@components/Expander";
 import { Row } from "@components/Row";
 
 import { CompanyCard } from "../../CompanyCard";
+import { Color } from "@common/Color";
 
 interface OngoingTabProps {
   navigateToCard: (cardProps: {
@@ -65,10 +66,14 @@ export const OngoingTab: React.FunctionComponent<OngoingTabProps> = ({
         value={value}
         placeholder="Search"
         onChangeText={(text) => setValue(text)}
+        style={{ backgroundColor: Color.Foreground3 }}
+        inputStyle={{ color: Color.TextPrimary }}
+        iconColor={Color.TextPrimary}
+        placeholderTextColor={Color.TextSecondary}
       />
-      <Card onPress={() => {}}>
+      <Card style={{ backgroundColor: Color.Foreground1 }} onPress={() => {}}>
         <Card.Content>
-          <Text>Filtered by: Industry Covered</Text>
+          <Text bold>Filtered by: Industry Covered</Text>
         </Card.Content>
       </Card>
       <Expander vertical size={12} />

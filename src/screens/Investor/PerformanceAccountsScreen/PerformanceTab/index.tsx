@@ -10,6 +10,7 @@ import { Card } from "react-native-paper";
 
 import { DataRow } from "@components/DataRow";
 import { DataGroup } from "@components/DataGroup";
+import { Color } from "@common/Color";
 
 export const PerformanceTab: React.FunctionComponent = () => {
   return (
@@ -45,7 +46,7 @@ export const PerformanceTab: React.FunctionComponent = () => {
       <Expander size={18}>
         <Text h1>Income Summary</Text>
         <Expander vertical size={10} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <DataRow bold label="Total Income" value="S$0.00" />
             <DataRow label="Interest Received" value="S$0.00" />
@@ -68,7 +69,7 @@ export const PerformanceTab: React.FunctionComponent = () => {
       <Expander size={18}>
         <Text h1>Funds Overview</Text>
         <Expander vertical size={10} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <Row>
               <Expander>
@@ -100,7 +101,7 @@ export const PerformanceTab: React.FunctionComponent = () => {
       <Expander size={18}>
         <Text h1>Default & Recovery</Text>
         <Expander vertical size={10} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <DataGroup label="Principal Defaulted (i)" value="S$0.00" />
             <Row>

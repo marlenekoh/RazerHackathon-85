@@ -9,8 +9,10 @@ import { Row } from "@components/Row";
 import { Expander } from "@components/Expander";
 import { Text } from "@components/Text";
 import { Divider } from "@components/Divider";
-import { DataGroup } from "../../../components/DataGroup";
+import { DataGroup } from "@components/DataGroup";
 import { ScrollView } from "react-native-gesture-handler";
+import { ScreenContainer } from "@components/ScreenContainer";
+import { Color } from "@common/Color";
 
 interface SmeDetailsScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.InvestorSmeDetails>;
@@ -24,18 +26,24 @@ export const SmeDetailsScreen: React.FunctionComponent<SmeDetailsScreenProps> = 
   const cardDetails = route.params;
   const { invested } = cardDetails;
   return (
-    <>
+    <ScreenContainer>
       <ScreenHeader title="Details" onBack={() => navigation.pop()} />
       <ScrollView>
-        <CompanyCard {...cardDetails} />
+        <CompanyCard {...cardDetails} showActions={false} />
         <Expander vertical size={8} />
         <Expander size={18}>
           <List.Accordion
             title="View Company Full Profile"
-            style={{ backgroundColor: "white" }}
+            theme={{
+              colors: {
+                text: Color.TextPrimary,
+                primary: Color.Highlight1,
+              },
+            }}
+            style={{ backgroundColor: Color.Foreground1 }}
           >
             <Expander vertical size={8} />
-            <Card>
+            <Card style={{ backgroundColor: Color.Foreground1 }}>
               <Card.Content>
                 <Text h6>Founders</Text>
                 <Text p2>Tan Yuan Qi, Benedict Tan, Yang Guokang</Text>
@@ -50,14 +58,14 @@ export const SmeDetailsScreen: React.FunctionComponent<SmeDetailsScreenProps> = 
                 </Text>
                 <Expander vertical size={8} />
                 <Text h6>Wensote</Text>
-                <Text p2 color="blue">
+                <Text p2 underline color={Color.Highlight2}>
                   www.tanyuanqi.co
                 </Text>
               </Card.Content>
             </Card>
           </List.Accordion>
           <Expander vertical size={12} />
-          <Card>
+          <Card style={{ backgroundColor: Color.Foreground1 }}>
             <Card.Content>
               <Row>
                 <Expander>
@@ -80,7 +88,7 @@ export const SmeDetailsScreen: React.FunctionComponent<SmeDetailsScreenProps> = 
               </Row>
             </Card.Content>
           </Card>
-          <Card style={{ backgroundColor: "lightgray" }}>
+          <Card style={{ backgroundColor: Color.Foreground3 }}>
             <Card.Content>
               <Row>
                 <Expander>
@@ -99,13 +107,22 @@ export const SmeDetailsScreen: React.FunctionComponent<SmeDetailsScreenProps> = 
             </Card.Content>
           </Card>
           <Expander vertical size={12} />
-          <Button mode="contained" disabled={invested}>
+          <Button
+            mode="contained"
+            color={invested ? Color.HighlightDisabled : Color.Highlight1}
+          >
             Invest{invested && "ed"}
           </Button>
           {invested && (
             <>
               <Expander vertical size={12} />
-              <Button mode="outlined" icon="chat" onPress={() => {}}>
+              <Button
+                mode="outlined"
+                icon="chat"
+                style={{ borderWidth: 2, borderColor: Color.Highlight1 }}
+                labelStyle={{ color: Color.Highlight1 }}
+                onPress={() => {}}
+              >
                 Chat with Company
               </Button>
             </>
@@ -113,6 +130,6 @@ export const SmeDetailsScreen: React.FunctionComponent<SmeDetailsScreenProps> = 
           <Expander vertical size={40} />
         </Expander>
       </ScrollView>
-    </>
+    </ScreenContainer>
   );
 };

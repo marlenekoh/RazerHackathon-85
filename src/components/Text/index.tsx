@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import { getFontStyle } from "./getFontStyle";
+import { Color } from "@common/Color";
 
 export interface TextStyle {
   h1?: boolean;
@@ -17,12 +18,13 @@ interface TextProps extends TextStyle {
   wrap?: boolean;
   align?: "center" | "left" | "right" | "justify";
   underline?: boolean;
+  bold?: boolean;
 }
 
 export const Text = styled.Text<TextProps>`
   font-size: ${(props) => getFontStyle(props).fontSize}px;
   ${(props) => getFontStyle(props).fontStyle}
-  color: ${({ color }) => (color ? color : "black")};
+  color: ${({ color }) => (color ? color : Color.TextPrimary)};
   text-align:${({ align }) => align || "left"};
   ${({ wrap }) =>
     wrap &&
@@ -30,10 +32,17 @@ export const Text = styled.Text<TextProps>`
     flex: 1;
   flex-wrap: wrap;
   `}
-    ${({ underline }) =>
-      underline &&
-      `
+
+  ${({ underline }) =>
+    underline &&
+    `
     text-decoration: underline;
   `}
 
+  ${({ bold }) =>
+    bold &&
+    `
+    font-weight: bold;
+  `}
+  
 `;

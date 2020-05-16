@@ -4,6 +4,7 @@ import { Card, Chip, Button } from "react-native-paper";
 import { Text } from "@components/Text";
 import { Row } from "@components/Row";
 import { Expander } from "@components/Expander";
+import { Color } from "@common/Color";
 
 interface SectionProps {
   applied?: boolean;
@@ -17,21 +18,30 @@ export const Section: React.FunctionComponent<SectionProps> = ({
   approved,
 }) => {
   return (
-    <Card onPress={onPress}>
+    <Card style={{ backgroundColor: Color.Foreground1 }} onPress={onPress}>
       <Card.Content>
         <Text h3>Startup SG Founder Grant</Text>
         <Text>Singapore</Text>
         <Expander vertical size={12} />
         <Row>
-          <Chip>Industry</Chip>
+          <Chip
+            textStyle={{ fontWeight: "bold" }}
+            style={{ backgroundColor: Color.Highlight2 }}
+          >
+            Industry
+          </Chip>
           <Expander />
         </Row>
         <Expander vertical size={12} />
         <Row>
           <Chip
             mode="outlined"
-            style={{ borderColor: "blue", borderWidth: 2 }}
-            textStyle={{ color: "blue" }}
+            style={{
+              backgroundColor: "transparent",
+              borderColor: Color.Highlight1,
+              borderWidth: 2,
+            }}
+            textStyle={{ color: Color.Highlight1 }}
           >
             {approved ? "Closed" : applied ? "Pending" : "Applicable"}
           </Chip>
@@ -39,21 +49,21 @@ export const Section: React.FunctionComponent<SectionProps> = ({
         </Row>
         <Expander vertical size={12} />
         <Row>
-          <Text h3>s$30,000*</Text>
+          <Text h3>S$30,000*</Text>
           <Expander />
-          {!applied && <Button>Learn More</Button>}
+          {!applied && <Button color={Color.Highlight1}>Learn More</Button>}
         </Row>
         <Expander vertical size={12} />
       </Card.Content>
       {approved ? (
-        <Card.Actions style={{ backgroundColor: "lightgreen" }}>
+        <Card.Actions style={{ backgroundColor: Color.Highlight1 }}>
           <Text>
             Your application has been <Text h5>Approved</Text>.
           </Text>
         </Card.Actions>
       ) : (
         applied && (
-          <Card.Actions style={{ backgroundColor: "lightgrey" }}>
+          <Card.Actions style={{ backgroundColor: Color.Foreground3 }}>
             <Text>
               You applied for this grant on <Text h5>16 May 2020</Text>.
             </Text>

@@ -7,6 +7,7 @@ import { Text } from "@components/Text";
 
 import { ScreenHeaderContainer } from "./ScreenHeaderContainer";
 import { BackButtonContainer } from "./BackButtonContainer";
+import { Color } from "@common/Color";
 
 interface ScreenHeaderProps {
   title?: string;
@@ -20,11 +21,17 @@ export const ScreenHeader: React.FunctionComponent<ScreenHeaderProps> = ({
   return (
     <ScreenHeaderContainer>
       <BackButtonContainer>
-        <IconButton icon="arrow-left" onPress={onBack} />
+        <IconButton
+          icon="arrow-left"
+          color={Color.TextPrimary}
+          onPress={onBack}
+        />
       </BackButtonContainer>
       <Expander vertical size={12}>
         <Center>
-          <Text h5>{title}</Text>
+          <Text h5 color={Color.TextPrimary}>
+            {title}
+          </Text>
         </Center>
       </Expander>
     </ScreenHeaderContainer>

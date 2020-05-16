@@ -5,6 +5,7 @@ import { Expander } from "@components/Expander";
 import { Searchbar, Card } from "react-native-paper";
 import { CompanyCard } from "../../CompanyCard";
 import { RootStackParamList } from "@common/Route";
+import { Color } from "@common/Color";
 
 interface InvestedTabProps {
   navigateToCard: (cardProps: {
@@ -40,12 +41,17 @@ export const InvestedTab: React.FunctionComponent<InvestedTabProps> = ({
         value={value}
         placeholder="Search"
         onChangeText={(text) => setValue(text)}
+        style={{ backgroundColor: Color.Foreground3 }}
+        inputStyle={{ color: Color.TextPrimary }}
+        iconColor={Color.TextPrimary}
+        placeholderTextColor={Color.TextSecondary}
       />
-      <Card>
+      <Card style={{ backgroundColor: Color.Foreground1 }}>
         <Card.Content>
-          <Text>Filtered by: Industry Covered</Text>
+          <Text bold>Filtered by: Industry Covered</Text>
         </Card.Content>
       </Card>
+      <Expander vertical size={12} />
       <CompanyCard
         invested
         {...cardData}

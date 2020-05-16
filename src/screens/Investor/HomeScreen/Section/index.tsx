@@ -3,6 +3,7 @@ import { Card, Button } from "react-native-paper";
 
 import { Text } from "@components/Text";
 import { Expander } from "@components/Expander";
+import { Color } from "@common/Color";
 
 interface SectionProps {
   title: string;
@@ -21,11 +22,16 @@ export const Section: React.FunctionComponent<SectionProps> = ({
     <Expander size={18}>
       <Text h1>{title}</Text>
       <Expander vertical size={10} />
-      <Card onPress={onCardPress}>
+      <Card
+        style={{ backgroundColor: Color.Foreground1 }}
+        onPress={onCardPress}
+      >
         <Card.Content>{content}</Card.Content>
         <Card.Actions>
           <Expander />
-          <Button onPress={onViewMore}>View More</Button>
+          <Button color={Color.Highlight1} onPress={onViewMore}>
+            View More
+          </Button>
         </Card.Actions>
       </Card>
     </Expander>

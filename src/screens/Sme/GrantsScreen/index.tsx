@@ -10,6 +10,8 @@ import { Searchbar, Card, IconButton } from "react-native-paper";
 import { ScrollView } from "react-native";
 import { Section } from "./Section";
 import { Row } from "@components/Row";
+import { ScreenContainer } from "@components/ScreenContainer";
+import { Color } from "@common/Color";
 
 interface GrantsScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.SmeGrants>;
@@ -21,7 +23,7 @@ export const GrantsScreen: React.FunctionComponent<GrantsScreenProps> = ({
   route,
 }) => {
   const navigateToLoans = (applied: boolean, approved?: boolean) =>
-    navigation.navigate(Route.SmeLoans, { applied, approved });
+    navigation.navigate(Route.SmeGrantLoans, { applied, approved });
 
   const NewTab = () => {
     const [value, setValue] = useState("");
@@ -37,16 +39,21 @@ export const GrantsScreen: React.FunctionComponent<GrantsScreenProps> = ({
           value={value}
           onChangeText={(text) => setValue(text)}
           placeholder="Search"
+          style={{ backgroundColor: Color.Foreground3 }}
+          inputStyle={{ color: Color.TextPrimary }}
+          iconColor={Color.TextPrimary}
+          placeholderTextColor={Color.TextSecondary}
         />
         <Expander vertical size={12} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <Row>
               <Text numberOfLines={1} style={{ width: "80%" }}>
-                Filtered by: Industry Covered, Eligibility and Funding Size
+                <Text bold>Filtered by: </Text>
+                Industry Covered, Eligibility and Funding Size
               </Text>
               <Expander />
-              <IconButton icon="filter" />
+              <IconButton color={Color.Highlight1} icon="filter" />
             </Row>
           </Card.Content>
         </Card>
@@ -80,16 +87,21 @@ export const GrantsScreen: React.FunctionComponent<GrantsScreenProps> = ({
           value={value}
           onChangeText={(text) => setValue(text)}
           placeholder="Search"
+          style={{ backgroundColor: Color.Foreground3 }}
+          inputStyle={{ color: Color.TextPrimary }}
+          iconColor={Color.TextPrimary}
+          placeholderTextColor={Color.TextSecondary}
         />
         <Expander vertical size={12} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <Row>
               <Text numberOfLines={1} style={{ width: "80%" }}>
-                Filtered by: Industry Covered, Eligibility and Funding Size
+                <Text bold>Filtered by: </Text>
+                Industry Covered, Eligibility and Funding Size
               </Text>
               <Expander />
-              <IconButton icon="filter" />
+              <IconButton color={Color.Highlight1} icon="filter" />
             </Row>
           </Card.Content>
         </Card>
@@ -110,7 +122,7 @@ export const GrantsScreen: React.FunctionComponent<GrantsScreenProps> = ({
     );
   };
   return (
-    <>
+    <ScreenContainer>
       <ScreenHeader title="grants" onBack={() => navigation.pop()} />
       <HorizontalTabs
         tab1={{
@@ -122,6 +134,6 @@ export const GrantsScreen: React.FunctionComponent<GrantsScreenProps> = ({
           component: AppliedPendingTab,
         }}
       />
-    </>
+    </ScreenContainer>
   );
 };

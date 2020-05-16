@@ -4,6 +4,7 @@ import { Row } from "@components/Row";
 import { Expander } from "@components/Expander";
 import { Text } from "@components/Text";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Color } from "@common/Color";
 
 interface SectionProps {
   title: string;
@@ -26,7 +27,7 @@ export const Section: React.FunctionComponent<SectionProps> = ({
   completed,
   onPress = () => {},
 }) => {
-  const textProps = completed ? { color: "gray" } : {};
+  const textProps = completed ? { color: Color.TextTertiary } : {};
   const sectionProps = completed
     ? {
         title,
@@ -50,25 +51,34 @@ export const Section: React.FunctionComponent<SectionProps> = ({
       };
 
   return (
-    <Card onPress={() => onPress(sectionProps)}>
+    <Card
+      style={{ backgroundColor: Color.Foreground1 }}
+      onPress={() => onPress(sectionProps)}
+    >
       <Card.Content>
         <Row>
           <Text h1 {...textProps} wrap>
             {title}
           </Text>
-          <IconButton icon="arrow-right" {...textProps} />
+          <IconButton
+            color={Color.TextPrimary}
+            icon="arrow-right"
+            {...textProps}
+          />
         </Row>
         <Text {...textProps}>{text}</Text>
         <Expander vertical size={12} />
       </Card.Content>
       {completed && (
-        <Card.Actions style={{ backgroundColor: "lightgray" }}>
+        <Card.Actions style={{ backgroundColor: Color.Foreground3 }}>
           <Row>
             <Expander />
-            <Text h5>100% completed</Text>
+            <Text h5 color={Color.TextTertiary}>
+              100% completed
+            </Text>
             <IconButton
               icon="checkbox-marked-circle"
-              color="blue"
+              color={Color.HighlightDisabled}
               style={{ marginTop: -2, marginBottom: -2 }}
             />
             <Expander />

@@ -8,6 +8,7 @@ import { Expander } from "@components/Expander";
 import { Center } from "@components/Center";
 import { DataRow } from "@components/DataRow";
 import { Row } from "@components/Row";
+import { Color } from "@common/Color";
 
 export const AccountTab: React.FunctionComponent = () => {
   return (
@@ -19,7 +20,7 @@ export const AccountTab: React.FunctionComponent = () => {
       </Center>
       <Expander vertical size={50} />
       <Expander size={18}>
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <DataRow label="Total Deposit" value="S$0.00" />
             <DataRow label="Total Withdrawal" value="-S$0.00" />
@@ -33,14 +34,18 @@ export const AccountTab: React.FunctionComponent = () => {
 
         <Text h1>Transaction History</Text>
         <Expander vertical size={10} />
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <DataRow label="16 May 2020, 16:28" value="S$420" />
             <Row>
               <Chip
                 mode="outlined"
-                style={{ borderColor: "blue", borderWidth: 2 }}
-                textStyle={{ color: "blue" }}
+                style={{
+                  backgroundColor: "transparent",
+                  borderColor: Color.Highlight1,
+                  borderWidth: 2,
+                }}
+                textStyle={{ color: Color.Highlight1 }}
               >
                 Deposit
               </Chip>
@@ -53,8 +58,12 @@ export const AccountTab: React.FunctionComponent = () => {
             <Row>
               <Chip
                 mode="outlined"
-                style={{ borderColor: "blue", borderWidth: 2 }}
-                textStyle={{ color: "blue" }}
+                style={{
+                  backgroundColor: "transparent",
+                  borderColor: Color.Highlight1,
+                  borderWidth: 2,
+                }}
+                textStyle={{ color: Color.Highlight1 }}
               >
                 Withdrawal
               </Chip>
@@ -66,7 +75,7 @@ export const AccountTab: React.FunctionComponent = () => {
           </Card.Content>
           <Card.Actions>
             <Expander />
-            <Button>View All Transactions</Button>
+            <Button color={Color.Highlight1}>View All Transactions</Button>
           </Card.Actions>
         </Card>
       </Expander>

@@ -7,6 +7,7 @@ import { Card, IconButton } from "react-native-paper";
 import { Row } from "@components/Row";
 
 import { Section } from "./Section";
+import { Color } from "@common/Color";
 
 interface DigitalisationTabProps {
   navigateToDigitalisationDetails: (props: {
@@ -28,7 +29,7 @@ export const DigitalisationTab: React.FunctionComponent<DigitalisationTabProps> 
       <Expander vertical size={20} />
       <Expander size={18}>
         <Text>Finish any 4 modules to get a $2K grant from Razer!</Text>
-        <Text color="blue">Terms and Conditions apply.</Text>
+        <Text color={Color.Highlight1}>Terms and Conditions apply.</Text>
         <Expander vertical size={20} />
         <Section
           completed

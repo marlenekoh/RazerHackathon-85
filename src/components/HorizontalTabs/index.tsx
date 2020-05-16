@@ -3,6 +3,7 @@ import { SceneMap } from "react-native-tab-view";
 import { Dimensions } from "react-native";
 import { TabView, TabBar } from "react-native-tab-view";
 import { Text } from "@components/Text";
+import { Color } from "@common/Color";
 /**
  * Only supports 2 tabs for now
  */
@@ -43,15 +44,15 @@ export const HorizontalTabs: React.FunctionComponent<HorizontalTabsProps> = ({
         <TabBar
           {...props}
           indicatorStyle={{
-            backgroundColor: "black",
+            borderColor: Color.TextPrimary,
             borderWidth: 2,
           }}
           renderLabel={({ route, focused }) => (
-            <Text h5 color={focused ? "black" : "gray"}>
+            <Text h5 color={focused ? Color.TextPrimary : Color.TextSecondary}>
               {route.title}
             </Text>
           )}
-          style={{ backgroundColor: "#f7f7f7", elevation: 0 }}
+          style={{ backgroundColor: Color.Foreground1, elevation: 0 }}
         />
       )}
     />

@@ -16,6 +16,8 @@ import {
 } from "react-native-paper";
 import { ScrollView } from "react-native";
 import { Row } from "@components/Row";
+import { ScreenContainer } from "@components/ScreenContainer";
+import { Color } from "@common/Color";
 
 interface GrantLoansScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.SmeGrantLoans>;
@@ -29,7 +31,7 @@ export const GrantLoansScreen: React.FunctionComponent<GrantLoansScreenProps> = 
   const { applied, approved } = route.params;
 
   return (
-    <>
+    <ScreenContainer>
       <ScreenHeader title="loans" onBack={() => navigation.pop()} />
       <ScrollView>
         <Expander size={20}>
@@ -37,21 +39,30 @@ export const GrantLoansScreen: React.FunctionComponent<GrantLoansScreenProps> = 
           <Text>Hey Name,</Text>
           <Text h4>You chose this grant/s:</Text>
           <Expander vertical size={30} />
-          <Card>
+          <Card style={{ backgroundColor: Color.Foreground1 }}>
             <Card.Content>
               <Text h3>Startup SG Founder Grant</Text>
               <Text>Singapore</Text>
               <Expander vertical size={12} />
               <Row>
-                <Chip>Industry</Chip>
+                <Chip
+                  textStyle={{ fontWeight: "bold" }}
+                  style={{ backgroundColor: Color.Highlight2 }}
+                >
+                  Industry
+                </Chip>
                 <Expander />
               </Row>
               <Expander vertical size={12} />
               <Row>
                 <Chip
                   mode="outlined"
-                  style={{ borderColor: "blue", borderWidth: 2 }}
-                  textStyle={{ color: "blue" }}
+                  style={{
+                    backgroundColor: "transparent",
+                    borderColor: Color.Highlight1,
+                    borderWidth: 2,
+                  }}
+                  textStyle={{ color: Color.Highlight1 }}
                 >
                   Applicable
                 </Chip>
@@ -59,13 +70,13 @@ export const GrantLoansScreen: React.FunctionComponent<GrantLoansScreenProps> = 
               </Row>
               <Expander vertical size={12} />
               <Row>
-                <Text h3>s$30,000*</Text>
+                <Text h3>S$30,000*</Text>
                 <Expander />
               </Row>
               <Expander vertical size={12} />
             </Card.Content>
             {applied && (
-              <Card.Actions style={{ backgroundColor: "lightgrey" }}>
+              <Card.Actions style={{ backgroundColor: Color.Foreground3 }}>
                 <Text>
                   You applied for this grant on <Text h5>16 May 2020</Text>.
                 </Text>
@@ -73,8 +84,17 @@ export const GrantLoansScreen: React.FunctionComponent<GrantLoansScreenProps> = 
             )}
           </Card>
           <Expander vertical size={20} />
-          <List.Accordion title="Overview" style={{ backgroundColor: "white" }}>
-            <Card>
+          <List.Accordion
+            title="Overview"
+            theme={{
+              colors: {
+                text: Color.TextPrimary,
+                primary: Color.Highlight1,
+              },
+            }}
+            style={{ backgroundColor: Color.Foreground1 }}
+          >
+            <Card style={{ backgroundColor: Color.Foreground1 }}>
               <Card.Content>
                 <Text>
                   Small and medium enterprises (SMEs) will receive an
@@ -115,25 +135,40 @@ export const GrantLoansScreen: React.FunctionComponent<GrantLoansScreenProps> = 
           <Expander vertical size={20} />
           <List.Accordion
             title="Eligibility"
-            style={{ backgroundColor: "white" }}
+            theme={{
+              colors: { text: Color.TextPrimary, primary: Color.Highlight1 },
+            }}
+            style={{ backgroundColor: Color.Foreground1 }}
           >
-            <Card>
+            <Card style={{ backgroundColor: Color.Foreground1 }}>
               <Card.Content>
                 <Text>Eligibility</Text>
               </Card.Content>
             </Card>
           </List.Accordion>
           <Expander vertical size={20} />
-          <List.Accordion title="Claims" style={{ backgroundColor: "white" }}>
-            <Card>
+          <List.Accordion
+            title="Claims"
+            theme={{
+              colors: { text: Color.TextPrimary, primary: Color.Highlight1 },
+            }}
+            style={{ backgroundColor: Color.Foreground1 }}
+          >
+            <Card style={{ backgroundColor: Color.Foreground1 }}>
               <Card.Content>
                 <Text>Claims</Text>
               </Card.Content>
             </Card>
           </List.Accordion>
           <Expander vertical size={20} />
-          <List.Accordion title="FAQs" style={{ backgroundColor: "white" }}>
-            <Card>
+          <List.Accordion
+            title="FAQs"
+            theme={{
+              colors: { text: Color.TextPrimary, primary: Color.Highlight1 },
+            }}
+            style={{ backgroundColor: Color.Foreground1 }}
+          >
+            <Card style={{ backgroundColor: Color.Foreground1 }}>
               <Card.Content>
                 <Text>FAQs</Text>
               </Card.Content>
@@ -142,10 +177,13 @@ export const GrantLoansScreen: React.FunctionComponent<GrantLoansScreenProps> = 
           <Expander vertical size={20} />
           <List.Accordion
             title="Apply"
-            titleStyle={{ fontWeight: "bold", color: "blue" }}
-            style={{ backgroundColor: "white" }}
+            theme={{
+              colors: { text: Color.Highlight1, primary: Color.Highlight1 },
+            }}
+            style={{ backgroundColor: Color.Foreground1 }}
+            titleStyle={{ fontWeight: "bold" }}
           >
-            <Card>
+            <Card style={{ backgroundColor: Color.Foreground1 }}>
               <Card.Content>
                 <Text h5>Pre-Application</Text>
                 <Text>
@@ -162,12 +200,12 @@ export const GrantLoansScreen: React.FunctionComponent<GrantLoansScreenProps> = 
             </Card>
           </List.Accordion>
           <Expander vertical size={20} />
-          <Button mode="contained" disabled={applied}>
+          <Button mode="contained" color={Color.HighlightDisabled}>
             {applied ? "Applied for Grant" : "Apply for Grant"}
           </Button>
         </Expander>
         <Expander vertical size={30} />
       </ScrollView>
-    </>
+    </ScreenContainer>
   );
 };

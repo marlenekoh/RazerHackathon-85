@@ -11,6 +11,8 @@ import { Button, Card, TextInput } from "react-native-paper";
 import { Row } from "@components/Row";
 import { DataGroup } from "@components/DataGroup";
 import { Divider } from "@components/Divider";
+import { Color } from "@common/Color";
+import { ScreenContainer } from "@components/ScreenContainer";
 
 interface OutstandingLoansScreenProps {
   navigation: StackNavigationProp<
@@ -27,26 +29,28 @@ export const OutstandingLoansScreen: React.FunctionComponent<OutstandingLoansScr
   const [loanSelected, setLoanSelected] = useState(false);
   const [value, setValue] = useState("");
   const Default = (
-    <>
+    <ScreenContainer>
       <Expander size={20}>
         <Text>Hey Name,</Text>
         <Text h4>
           You have{" "}
-          <Text h4 color="blue">
+          <Text h4 color={Color.Highlight1}>
             3
           </Text>{" "}
           loan/s outstanding:
         </Text>
         <Expander vertical size={30} />
       </Expander>
-      <Expander vertical size={20} />
       <Center>
         <Text h1>S$300.00</Text>
         <Text h3>Outstanding Amount This Month</Text>
       </Center>
-      <Expander vertical size={20} />
+      <Expander vertical size={50} />
       <Expander size={20}>
-        <Card onPress={() => setLoanSelected(true)}>
+        <Card
+          style={{ backgroundColor: Color.Foreground1 }}
+          onPress={() => setLoanSelected(true)}
+        >
           <Card.Content>
             <Row>
               <Text h3>Raymond B.</Text>
@@ -56,17 +60,26 @@ export const OutstandingLoansScreen: React.FunctionComponent<OutstandingLoansScr
             <Text>Singapore</Text>
             <Expander vertical size={30} />
             <Text p2>
-              Overdue in <Text color="red">4</Text> day/s
+              Overdue in{" "}
+              <Text bold color={Color.Highlight2}>
+                4
+              </Text>{" "}
+              day/s
             </Text>
             <Row>
               <Text h3>S$100.00*</Text>
               <Expander />
-              <Button style={{ marginRight: -14 }}>Repayment</Button>
+              <Button color={Color.Highlight1} style={{ marginRight: -14 }}>
+                Repayment
+              </Button>
             </Row>
           </Card.Content>
         </Card>
         <Expander vertical size={12} />
-        <Card onPress={() => setLoanSelected(true)}>
+        <Card
+          style={{ backgroundColor: Color.Foreground1 }}
+          onPress={() => setLoanSelected(true)}
+        >
           <Card.Content>
             <Row>
               <Text h3>Meryl C.</Text>
@@ -76,17 +89,26 @@ export const OutstandingLoansScreen: React.FunctionComponent<OutstandingLoansScr
             <Text>Singapore</Text>
             <Expander vertical size={30} />
             <Text p2>
-              Overdue in <Text color="red">4</Text> day/s
+              Overdue in{" "}
+              <Text bold color={Color.Highlight2}>
+                4
+              </Text>{" "}
+              day/s
             </Text>
             <Row>
               <Text h3>S$100.00*</Text>
               <Expander />
-              <Button style={{ marginRight: -14 }}>Repayment</Button>
+              <Button color={Color.Highlight1} style={{ marginRight: -14 }}>
+                Repayment
+              </Button>
             </Row>
           </Card.Content>
         </Card>
         <Expander vertical size={12} />
-        <Card onPress={() => setLoanSelected(true)}>
+        <Card
+          style={{ backgroundColor: Color.Foreground1 }}
+          onPress={() => setLoanSelected(true)}
+        >
           <Card.Content>
             <Row>
               <Text h3>Gary N.</Text>
@@ -96,24 +118,30 @@ export const OutstandingLoansScreen: React.FunctionComponent<OutstandingLoansScr
             <Text>Singapore</Text>
             <Expander vertical size={30} />
             <Text p2>
-              Overdue in <Text color="red">4</Text> day/s
+              Overdue in{" "}
+              <Text bold color={Color.Highlight2}>
+                4
+              </Text>{" "}
+              day/s
             </Text>
             <Row>
               <Text h3>S$100.00*</Text>
               <Expander />
-              <Button style={{ marginRight: -14 }}>Repayment</Button>
+              <Button color={Color.Highlight1} style={{ marginRight: -14 }}>
+                Repayment
+              </Button>
             </Row>
           </Card.Content>
         </Card>
         <Expander vertical size={30} />
       </Expander>
-    </>
+    </ScreenContainer>
   );
 
   const LoanSelected = (
     <>
       <Expander size={20}>
-        <Card>
+        <Card style={{ backgroundColor: Color.Foreground1 }}>
           <Card.Content>
             <Row>
               <Text h3>Gary N.</Text>
@@ -150,7 +178,7 @@ export const OutstandingLoansScreen: React.FunctionComponent<OutstandingLoansScr
             </Row>
           </Card.Content>
         </Card>
-        <Card style={{ backgroundColor: "lightgray" }}>
+        <Card style={{ backgroundColor: Color.Foreground3 }}>
           <Card.Content>
             <Text h3>Repayment Amount (SGD)</Text>
             <Row>
@@ -183,7 +211,7 @@ export const OutstandingLoansScreen: React.FunctionComponent<OutstandingLoansScr
         }}
         title="loans"
       />
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: Color.Background }}>
         <Expander vertical size={30} />
         {loanSelected ? LoanSelected : Default}
       </ScrollView>
