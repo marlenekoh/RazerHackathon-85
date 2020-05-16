@@ -29,6 +29,13 @@ export const RazerPeerScreen: React.FunctionComponent<RazerPeerScreenProps> = ({
             <Center>
               <Text h5>$3,600.00</Text>
               <Text>Funds Raised</Text>
+              <Text
+                underline
+                color="blue"
+                onPress={() => navigation.navigate(Route.SmeFundsRaised)}
+              >
+                View Details
+              </Text>
             </Center>
           </Expander>
           <Divider vertical length={80} />

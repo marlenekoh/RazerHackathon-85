@@ -35,7 +35,7 @@ export const GrantLoansScreen: React.FunctionComponent<GrantLoansScreenProps> = 
         <Expander size={20}>
           <Expander vertical size={20} />
           <Text>Hey Name,</Text>
-          <Text h4>you chose this grant/s:</Text>
+          <Text h4>You chose this grant/s:</Text>
           <Expander vertical size={30} />
           <Card>
             <Card.Content>

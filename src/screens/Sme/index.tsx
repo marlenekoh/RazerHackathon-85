@@ -8,3 +8,4 @@ export * from "./OutstandingLoansScreen";
 export * from "./GrantLoansScreen";
 export * from "./LoansScreen";
 export * from "./LoanSelectScreen";
+export * from "./FundsRaisedScreen";

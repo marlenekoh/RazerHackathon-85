@@ -21,6 +21,7 @@ import {
   OutstandingLoansScreen as SmeOutstandingLoansScreen,
   LoansScreen as SmeLoansScreen,
   LoanSelectScreen as SmeLoanSelectScreen,
+  FundsRaisedScreen as SmeFundsRaisedScreen,
 } from "@screens/Sme";
 import { HomeScreen } from "@screens/HomeScreen";
 import { Route } from "@common/Route";
@@ -109,6 +110,11 @@ const App: React.FunctionComponent = () => {
           <Stack.Screen
             name={Route.SmeLoanSelect}
             component={SmeLoanSelectScreen}
+            options={screenOptions}
+          />
+          <Stack.Screen
+            name={Route.SmeFundsRaised}
+            component={SmeFundsRaisedScreen}
             options={screenOptions}
           />
         </Stack.Navigator>

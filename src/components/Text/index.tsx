@@ -16,6 +16,7 @@ interface TextProps extends TextStyle {
   color?: string;
   wrap?: boolean;
   align?: "center" | "left" | "right" | "justify";
+  underline?: boolean;
 }
 
 export const Text = styled.Text<TextProps>`
@@ -28,6 +29,11 @@ export const Text = styled.Text<TextProps>`
     `
     flex: 1;
   flex-wrap: wrap;
+  `}
+    ${({ underline }) =>
+      underline &&
+      `
+    text-decoration: underline;
   `}
 
 `;

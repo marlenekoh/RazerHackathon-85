@@ -13,6 +13,7 @@ export enum Route {
   SmeRazerPeer = "SmeRazerPeer",
   SmeOutstandingLoans = "SmeOutstandingLoans",
   SmeLoanSelect = "SmeLoanSelect",
+  SmeFundsRaised = "SmeFundsRaised",
 }
 
 export type RootStackParamList = {
@@ -47,4 +48,5 @@ export type RootStackParamList = {
   [Route.SmeRazerPeer]: undefined;
   [Route.SmeOutstandingLoans]: undefined;
   [Route.SmeLoanSelect]: undefined;
+  [Route.SmeFundsRaised]: undefined;
 };

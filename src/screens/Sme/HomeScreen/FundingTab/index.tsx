@@ -70,7 +70,7 @@ export const FundingTab: React.FunctionComponent<FundingTabProps> = ({
             </Row>
           </Card.Actions>
         </Card>
-        <Expander vertical size={10} />
+        <Expander vertical size={30} />
         <Text h1>RazerPeers</Text>
         <Expander vertical size={10} />
         <Card onPress={navigateToRazerPeer}>
