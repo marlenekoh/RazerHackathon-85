@@ -13,11 +13,12 @@ export interface TextStyle {
 
 interface TextProps extends TextStyle {
   color?: string;
+  align?: "center" | "left" | "right" | "justify";
 }
 
 export const Text = styled.Text<TextProps>`
   font-size: ${(props) => getFontStyle(props).fontSize}px;
   ${(props) => getFontStyle(props).fontStyle}
   color: ${({ color }) => (color ? color : "black")};
-
+  text-align:${({ align }) => align || "left"};
 `;
