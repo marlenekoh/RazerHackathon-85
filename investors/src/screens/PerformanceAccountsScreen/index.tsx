@@ -5,13 +5,17 @@ import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 
-import { RootStackParamList, Route } from "@common/Route";
-import { Text } from "@components/Text";
-import { Expander } from "@components/Expander";
 import { Row } from "@components/Row";
+import { RootStackParamList, Route } from "@common/Route";
+import { Expander } from "@components/Expander";
+import { Text } from "@components/Text";
+import { Center } from "@components/Center";
 
 import { PerformanceAccountScreenContainer } from "./PerformanceAccountScreenContainer";
 import { PerformanceTab } from "./PerformanceTab";
+import { AccountTab } from "./AccountTab";
+import { BackButtonContainer } from "./BackButtonContainer";
+import { ScreenHeader } from "@components/ScreenHeader";
 
 interface PerformanceAccountScreenProps {
   navigation: StackNavigationProp<RootStackParamList, Route.PerformanceAccount>;
@@ -29,13 +33,16 @@ export const PerformanceAccountScreen: React.FunctionComponent<PerformanceAccoun
   ]);
   const renderScene = SceneMap({
     first: () => <PerformanceTab />,
-    second: () => <Text>Second Route</Text>,
+    second: () => <AccountTab />,
   });
   const initialLayout = { width: Dimensions.get("window").width };
 
   return (
     <PerformanceAccountScreenContainer>
-      <IconButton icon="arrow-left" onPress={() => navigation.goBack()} />
+      <ScreenHeader
+        onBack={() => navigation.goBack()}
+        title="Performance & Accounts"
+      />
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
@@ -48,7 +55,11 @@ export const PerformanceAccountScreen: React.FunctionComponent<PerformanceAccoun
               backgroundColor: "black",
               borderWidth: 2,
             }}
-            renderLabel={({ route, focused }) => <Text h5>{route.title}</Text>}
+            renderLabel={({ route, focused }) => (
+              <Text h5 color={focused ? "black" : "gray"}>
+                {route.title}
+              </Text>
+            )}
             style={{ backgroundColor: "transparent", elevation: 0 }}
           />
         )}
