@@ -18,7 +18,7 @@ To Start:
 
 Try the app on an online simulator:
 
-- Android: https://github.com/marlenekoh/RazerHackathon-85
+- Android: https://appetize.io/app/yp27pedu3835zg0xrb1jy87820
 - iOS: https://appetize.io/app/j83wbfe5n83p4bqj8my434fqz4
 
 Also check our our wireframes done on Figma [here](./Wireflow.fig)
